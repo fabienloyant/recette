@@ -1,14 +1,29 @@
-package com.projet_recette.entities;
+package com.projet_recette.utilisateur;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.*;
+import com.projet_recette.entities.IngredientEntity;
+import com.projet_recette.entities.RecetteEntity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name="utilisateurs")
-public class UtilisateurEntity {
+@Getter
+@Setter
+@NoArgsConstructor
+public class Utilisateur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,13 +55,13 @@ public class UtilisateurEntity {
 	@JoinTable(name="utilisateurs_ingredients",
 		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
 		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
-	private List <IngredientEntity> ingredients; // TO IMPORT
+	private List <IngredientEntity> ingredients;
 	
 	@ManyToMany
 	@JoinTable(name="utilisateurs_recettes",
 		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
 		inverseJoinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"))
-	private List <RecetteEntity> recettes; // TO IMPORT
+	private List <RecetteEntity> recettes;
 	
 	public UtilisateurEntity(String prenom, String nom, Timestamp dateDeNaissance, String login, String mdp,
 			LocalDate dateAjout, LocalDate lastUpdate) {
@@ -57,62 +72,6 @@ public class UtilisateurEntity {
 		this.mdp = mdp;
 		this.dateAjout = dateAjout;
 		this.lastUpdate = lastUpdate;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Timestamp getDateDeNaissance() {
-		return dateDeNaissance;
-	}
-
-	public void setDateDeNaissance(Timestamp dateDeNaissance) {
-		this.dateDeNaissance = dateDeNaissance;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getMdp() {
-		return mdp;
-	}
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
-
-	public LocalDate getLastUpdate() {
-		return lastUpdate;
-	}
-
-	public void setLastUpdate(LocalDate lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public LocalDate getDateAjout() {
-		return dateAjout;
 	}
 
 	@Override
