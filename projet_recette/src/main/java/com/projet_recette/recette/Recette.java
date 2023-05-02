@@ -4,7 +4,7 @@ package com.projet_recette.recette;
 import java.time.LocalDate;
 import java.util.List;
 
-
+import com.projet_recette.ingredient.Ingredient;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,13 +14,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -68,7 +66,7 @@ public class Recette {
 	@JoinTable(name="recettes_ingredients", //table intermédiaire entre recettes et ingredients
 		joinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"),
 		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
-	private List <IngredientEntity> ingredient;
+	private List <Ingredient> ingredient;
 
 
 	
@@ -76,7 +74,7 @@ public class Recette {
 	
 	@Override
 	public String toString() {
-		return "RecetteEntity [idRecette=" + idRecette + ", nomRecette=" + nomRecette + ", tempsPreparation="
+		return "Recette [idRecette=" + idRecette + ", nomRecette=" + nomRecette + ", tempsPreparation="
 				+ tempsPreparation + ", tempsCuisson=" + tempsCuisson + ", tempsRepos=" + tempsRepos + ", nbPersonnes="
 				+ nbPersonnes + ", consignes=" + consignes + ", dateAjout=" + dateAjout + ", lastUpdate=" + lastUpdate
 				+ "]";
@@ -86,9 +84,9 @@ public class Recette {
 
 
 
-	public RecetteEntity(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
+	public Recette(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
 			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
-			List<IngredientEntity> ingredient) {
+			List<Ingredient> ingredient) {
 		this.idRecette = idRecette;
 		this.nomRecette = nomRecette;
 		this.tempsPreparation = tempsPreparation;

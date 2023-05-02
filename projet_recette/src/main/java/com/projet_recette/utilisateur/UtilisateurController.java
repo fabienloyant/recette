@@ -1,10 +1,11 @@
 package com.projet_recette.utilisateur;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/utilisateur")
 public class UtilisateurController {
 
@@ -23,34 +25,29 @@ public class UtilisateurController {
 		this.utilisateurService = utilisateurService;
 	}
 	
-	@GetMapping("/findall")
+	@GetMapping
 	public List<Utilisateur> findAll() {
 		return utilisateurService.findAll();
 	}
 	
-	@GetMapping("/findbyid")
-	public Optional<Utilisateur> findById(@RequestParam int id) {
+	@GetMapping("/{id}")
+	public Utilisateur findById(@PathVariable int id) {
 		return utilisateurService.findById(id);
 	}
 	
-	@PostMapping("/save")
-	public void save(@RequestBody Utilisateur utilisateur) {
-		utilisateurService.save(utilisateur);
+	@PostMapping
+	public Utilisateur save(@RequestBody Utilisateur utilisateur) {
+		return utilisateurService.save(utilisateur);
 	}
 	
-	@PutMapping("/update")
-	public void update(@RequestParam int id, @RequestBody Utilisateur utilisateur) {
-		utilisateurService.update(id, utilisateur);
+	@PutMapping
+	public void update(@RequestBody Utilisateur utilisateur) {
+		utilisateurService.update(utilisateur);
 	}
 	
 	@DeleteMapping("/deletebyid")
 	public void deleteById(@RequestParam int id) {
 		utilisateurService.deleteById(id);
-	}
-	
-	@DeleteMapping("/deleteall")
-	public void deleteAll() {
-		utilisateurService.deleteAll();
 	}
 	
 }

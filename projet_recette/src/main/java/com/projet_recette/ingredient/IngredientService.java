@@ -43,6 +43,7 @@ public class IngredientService {
 	public void deleteById(int id) {
 		ingredientRepository.deleteById(id);
 	}
+	
 
 	//update
 	public void update(Ingredient ingredient) {
