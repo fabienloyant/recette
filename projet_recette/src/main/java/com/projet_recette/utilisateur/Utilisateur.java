@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.entities.IngredientEntity;
-import com.projet_recette.entities.RecetteEntity;
+import com.projet_recette.ingredient.Ingredient;
+import com.projet_recette.recette.Recette;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -55,15 +55,15 @@ public class Utilisateur {
 	@JoinTable(name="utilisateurs_ingredients",
 		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
 		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
-	private List <IngredientEntity> ingredients;
+	private List <Ingredient> ingredients;
 	
 	@ManyToMany
 	@JoinTable(name="utilisateurs_recettes",
 		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
 		inverseJoinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"))
-	private List <RecetteEntity> recettes;
+	private List <Recette> recettes;
 	
-	public UtilisateurEntity(String prenom, String nom, Timestamp dateDeNaissance, String login, String mdp,
+	public Utilisateur(String prenom, String nom, Timestamp dateDeNaissance, String login, String mdp,
 			LocalDate dateAjout, LocalDate lastUpdate) {
 		this.prenom = prenom;
 		this.nom = nom;
@@ -76,7 +76,7 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "UtilisateurEntity [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", dateDeNaissance="
+		return "Utilisateur [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", dateDeNaissance="
 				+ dateDeNaissance + ", login=" + login + ", mdp=" + mdp + ", dateAjout=" + dateAjout + ", lastUpdate="
 				+ lastUpdate + "]";
 	}
