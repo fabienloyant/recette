@@ -20,11 +20,13 @@ import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Recette {
 	
 	/*
@@ -69,21 +71,6 @@ public class Recette {
 	private List <Ingredient> ingredient;
 
 
-	
-	
-	
-	@Override
-	public String toString() {
-		return "Recette [idRecette=" + idRecette + ", nomRecette=" + nomRecette + ", tempsPreparation="
-				+ tempsPreparation + ", tempsCuisson=" + tempsCuisson + ", tempsRepos=" + tempsRepos + ", nbPersonnes="
-				+ nbPersonnes + ", consignes=" + consignes + ", dateAjout=" + dateAjout + ", lastUpdate=" + lastUpdate
-				+ "]";
-	}
-
-
-
-
-
 	public Recette(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
 			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
 			List<Ingredient> ingredient) {
@@ -98,9 +85,5 @@ public class Recette {
 		this.lastUpdate = lastUpdate;
 		this.ingredient = ingredient;
 	}
-	
-	
-	
-	
 
 }

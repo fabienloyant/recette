@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**********************************************************************************
  * création de la table
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Ingredient {
 
 	
@@ -62,16 +64,5 @@ public class Ingredient {
 		this.typeIngredient = typeIngredient;
 	}
 	
-	
-	
-	/*****************************************************************
-	 * Méthode to string
-	 *****************************************************************/
-
-	@Override
-	public String toString() {
-		return "Ingredient [id=" + id + ", nom=" + nom + ", unite=" + unite + ", typeIngredient=" + typeIngredient
-				+ "]";
-	}
 
 }
