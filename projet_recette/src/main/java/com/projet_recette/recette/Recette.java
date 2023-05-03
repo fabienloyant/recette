@@ -66,12 +66,12 @@ public class Recette {
 	
 	
 	@ManyToMany
-	@JoinTable(name="recettes_ingredients", //table intermédiaire entre recettes et ingredients
+	@JoinTable(name="recette_ingredient", //table intermédiaire entre recette et ingredient
 		joinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"),
 		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
 	private List <Ingredient> ingredient;
 	
-	@ManyToMany(mappedBy = "recettes")
+	@ManyToMany(mappedBy = "recette")
 	private List<Utilisateur> utilisateur ;
 
 	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,

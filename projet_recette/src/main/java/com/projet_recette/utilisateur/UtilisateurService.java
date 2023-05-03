@@ -48,7 +48,7 @@ public class UtilisateurService {
 		Utilisateur utilisateur = utilisateurRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 		Ingredient ingredientSauvegarde = ingredientService.findOrInsertIngredient(ingredient);
-		utilisateur.getIngredients().add(ingredientSauvegarde);
+		utilisateur.getIngredient().add(ingredientSauvegarde);
 		utilisateurRepository.save(utilisateur);
 		return findById(id);
 	}
@@ -57,7 +57,7 @@ public class UtilisateurService {
 		Utilisateur utilisateur = utilisateurRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 		Recette recetteSauvegarde = recetteService.findOrInsertRecette(recette);
-		utilisateur.getRecettes().add(recetteSauvegarde);
+		utilisateur.getRecette().add(recetteSauvegarde);
 		utilisateurRepository.save(utilisateur);
 		return findById(id);
 	}

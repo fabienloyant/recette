@@ -1,10 +1,16 @@
 package com.projet_recette.ingredient;
 
+import java.util.List;
+
+import com.projet_recette.recette.Recette;
+import com.projet_recette.utilisateur.Utilisateur;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,7 +45,14 @@ public class Ingredient {
 
 	@Column(name = "type_ingredient", length = 50, nullable = false)
 	private TypeIngredient typeIngredient; // enum
-
+	
+	
+	@ManyToMany(mappedBy = "ingredient")
+	private List<Utilisateur> utilisateur ;
+	
+	@ManyToMany (mappedBy = "ingredient")
+	private List <Recette> recette;
+;
 	
 	/***************************************************************************
 	 * Constructeurs
