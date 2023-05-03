@@ -1,11 +1,17 @@
 package com.projet_recette.utilisateur;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.projet_recette.ingredient.Ingredient;
+import com.projet_recette.ingredient.IngredientRepository;
+import com.projet_recette.ingredient.IngredientService;
+import com.projet_recette.recette.Recette;
+import com.projet_recette.recette.RecetteService;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +21,14 @@ import lombok.Setter;
 @Setter
 public class UtilisateurService {
 
-	private UtilisateurRepository utilisateurRepository;
+	private final UtilisateurRepository utilisateurRepository;
+	private final IngredientService ingredientService;
+	private final RecetteService recetteService;
 	
-	public UtilisateurService(UtilisateurRepository utilisateurRepository) {
+	public UtilisateurService(UtilisateurRepository utilisateurRepository, IngredientService ingredientService, RecetteService recetteService) {
 		this.utilisateurRepository = utilisateurRepository;
+		this.ingredientService = ingredientService;
+		this.recetteService = recetteService;
 	}
 	
 	public List<Utilisateur> findAll() {
@@ -34,6 +44,24 @@ public class UtilisateurService {
 		return utilisateur;
 	}
 	
+	public Utilisateur addIngredient(int id, Ingredient ingredient) {
+		Utilisateur utilisateur = utilisateurRepository.findById(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+		Ingredient ingredientSauvegarde = ingredientService.findOrInsertIngredient(ingredient);
+		utilisateur.getIngredients().add(ingredientSauvegarde);
+		utilisateurRepository.save(utilisateur);
+		return findById(id);
+	}
+	
+	public Utilisateur addRecette(int id, Recette recette) {
+		Utilisateur utilisateur = utilisateurRepository.findById(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+		Recette recetteSauvegarde = recetteService.findOrInsertRecette(recette);
+		utilisateur.getRecettes().add(recetteSauvegarde);
+		utilisateurRepository.save(utilisateur);
+		return findById(id);
+	}
+
 	public Utilisateur update(Utilisateur utilisateur) {
 		deleteById(utilisateur.getId());
 		utilisateurRepository.save(utilisateur);
