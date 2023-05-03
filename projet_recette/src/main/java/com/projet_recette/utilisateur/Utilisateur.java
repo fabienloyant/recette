@@ -18,11 +18,13 @@ import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Utilisateur {
 
 	@Id
@@ -74,11 +76,6 @@ public class Utilisateur {
 		this.lastUpdate = lastUpdate;
 	}
 
-	@Override
-	public String toString() {
-		return "Utilisateur [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", dateDeNaissance="
-				+ dateDeNaissance + ", login=" + login + ", mdp=" + mdp + ", dateAjout=" + dateAjout + ", lastUpdate="
-				+ lastUpdate + "]";
-	}
+	
 	
 }

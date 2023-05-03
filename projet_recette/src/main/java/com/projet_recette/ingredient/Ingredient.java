@@ -63,6 +63,5 @@ public class Ingredient {
 		this.unite = unite;
 		this.typeIngredient = typeIngredient;
 	}
-	
 
 }
