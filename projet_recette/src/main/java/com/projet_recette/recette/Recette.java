@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.projet_recette.ingredient.Ingredient;
+import com.projet_recette.utilisateur.Utilisateur;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,10 +22,12 @@ import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class Recette {
 	
@@ -67,23 +71,25 @@ public class Recette {
 		joinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"),
 		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
 	private List <Ingredient> ingredient;
+	
+	@ManyToMany(mappedBy = "recettes")
+	private List<Utilisateur> utilisateur ;
 
-
-	
-	
-	
-	@Override
-	public String toString() {
-		return "Recette [idRecette=" + idRecette + ", nomRecette=" + nomRecette + ", tempsPreparation="
-				+ tempsPreparation + ", tempsCuisson=" + tempsCuisson + ", tempsRepos=" + tempsRepos + ", nbPersonnes="
-				+ nbPersonnes + ", consignes=" + consignes + ", dateAjout=" + dateAjout + ", lastUpdate=" + lastUpdate
-				+ "]";
+	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
+			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate) {
+		super();
+		this.idRecette = idRecette;
+		this.nomRecette = nomRecette;
+		this.tempsPreparation = tempsPreparation;
+		this.tempsCuisson = tempsCuisson;
+		this.tempsRepos = tempsRepos;
+		this.nbPersonnes = nbPersonnes;
+		this.consignes = consignes;
+		this.dateAjout = dateAjout;
+		this.lastUpdate = lastUpdate;
 	}
-
-
-
-
-
+	
+	
 	public Recette(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
 			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
 			List<Ingredient> ingredient) {
@@ -98,9 +104,38 @@ public class Recette {
 		this.lastUpdate = lastUpdate;
 		this.ingredient = ingredient;
 	}
-	
-	
-	
-	
+
+
+
+	public Recette(String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos, int nbPersonnes,
+			String consignes, LocalDate dateAjout, LocalDate lastUpdate, List<Ingredient> ingredient) {
+		this.nomRecette = nomRecette;
+		this.tempsPreparation = tempsPreparation;
+		this.tempsCuisson = tempsCuisson;
+		this.tempsRepos = tempsRepos;
+		this.nbPersonnes = nbPersonnes;
+		this.consignes = consignes;
+		this.dateAjout = dateAjout;
+		this.lastUpdate = lastUpdate;
+		this.ingredient = ingredient;
+	}
+
+
+
+	public Recette(String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos, int nbPersonnes,
+			String consignes, LocalDate dateAjout, LocalDate lastUpdate, List<Ingredient> ingredient,
+			List<Utilisateur> utilisateur) {
+		this.nomRecette = nomRecette;
+		this.tempsPreparation = tempsPreparation;
+		this.tempsCuisson = tempsCuisson;
+		this.tempsRepos = tempsRepos;
+		this.nbPersonnes = nbPersonnes;
+		this.consignes = consignes;
+		this.dateAjout = dateAjout;
+		this.lastUpdate = lastUpdate;
+		this.ingredient = ingredient;
+		this.utilisateur = utilisateur;
+	}
+
 
 }
