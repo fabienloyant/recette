@@ -29,6 +29,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@ToString
 public class Recette {
 	
 	/*
@@ -89,7 +90,6 @@ public class Recette {
 		this.lastUpdate = lastUpdate;
 	}
 	
-	
 	public Recette(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
 			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
 			List<Ingredient> ingredient) {
@@ -136,6 +136,5 @@ public class Recette {
 		this.ingredient = ingredient;
 		this.utilisateur = utilisateur;
 	}
-
 
 }
