@@ -50,5 +50,11 @@ public class IngredientService {
 		deleteById(ingredient.getId());
 		ingredientRepository.save(ingredient);
 	}
-
+	
+	
+	//find or insert ingredient
+	public Ingredient findOrInsertIngredient(Ingredient ingredient) {
+		return ingredientRepository.findById(ingredient.getId()).orElseGet(() -> ingredientRepository.save(ingredient));
+	}
+	
 }
