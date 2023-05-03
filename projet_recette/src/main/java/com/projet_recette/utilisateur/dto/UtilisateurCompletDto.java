@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.ingredient.Ingredient;
-import com.projet_recette.recette.Recette;
+import com.projet_recette.ingredient.dto.IngredientReduitDto;
+import com.projet_recette.recette.dto.RecetteReduitDto;
 
 import lombok.Data;
 
