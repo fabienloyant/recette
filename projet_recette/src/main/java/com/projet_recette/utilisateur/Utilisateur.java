@@ -54,16 +54,16 @@ public class Utilisateur {
 	private LocalDate lastUpdate;
 	
 	@ManyToMany
-	@JoinTable(name="utilisateurs_ingredients",
+	@JoinTable(name="utilisateur_ingredient",
 		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
 		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
-	private List <Ingredient> ingredients;
+	private List <Ingredient> ingredient;
 	
 	@ManyToMany
-	@JoinTable(name="utilisateurs_recettes",
+	@JoinTable(name="utilisateur_recette",
 		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
 		inverseJoinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"))
-	private List <Recette> recettes;
+	private List <Recette> recette;
 	
 	public Utilisateur(String prenom, String nom, Timestamp dateDeNaissance, String login, String mdp,
 			LocalDate dateAjout, LocalDate lastUpdate) {
