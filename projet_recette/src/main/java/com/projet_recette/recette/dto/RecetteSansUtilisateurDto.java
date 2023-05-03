@@ -3,7 +3,7 @@ package com.projet_recette.recette.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.ingredient.Ingredient;
+import com.projet_recette.ingredient.dto.IngredientSansRecetteDto;
 
 import lombok.Data;
 
@@ -19,5 +19,5 @@ public class RecetteSansUtilisateurDto {
 	private LocalDate dateAjout;
 	private LocalDate lastUpdate;
 	
-	private List<IngredientSansUtilisateurDto> ingredient;
+	private List<IngredientSansRecetteDto> ingredient;
 }

@@ -29,7 +29,6 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-@ToString
 public class Recette {
 	
 	/*
