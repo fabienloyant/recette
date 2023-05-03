@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.projet_recette.ingredient.TypeIngredient;
 import com.projet_recette.ingredient.Unite;
+import com.projet_recette.recette.dto.RecetteSansIngredientDto;
 
 import lombok.Data;
 

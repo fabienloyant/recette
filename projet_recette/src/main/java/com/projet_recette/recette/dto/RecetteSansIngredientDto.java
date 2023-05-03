@@ -3,7 +3,7 @@ package com.projet_recette.recette.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.utilisateur.Utilisateur;
+import com.projet_recette.utilisateur.dto.UtilisateurSansIngredientDto;
 
 import lombok.Data;
 

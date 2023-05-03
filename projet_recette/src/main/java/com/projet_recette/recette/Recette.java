@@ -27,7 +27,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @ToString
 public class Recette {
@@ -106,9 +105,11 @@ public class Recette {
 	}
 
 
-
-	public Recette(String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos, int nbPersonnes,
-			String consignes, LocalDate dateAjout, LocalDate lastUpdate, List<Ingredient> ingredient) {
+	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
+			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
+			List<Utilisateur> utilisateur) {
+		
+		this.idRecette = idRecette;
 		this.nomRecette = nomRecette;
 		this.tempsPreparation = tempsPreparation;
 		this.tempsCuisson = tempsCuisson;
@@ -117,14 +118,14 @@ public class Recette {
 		this.consignes = consignes;
 		this.dateAjout = dateAjout;
 		this.lastUpdate = lastUpdate;
-		this.ingredient = ingredient;
+		this.utilisateur = utilisateur;
 	}
 
-
-
-	public Recette(String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos, int nbPersonnes,
-			String consignes, LocalDate dateAjout, LocalDate lastUpdate, List<Ingredient> ingredient,
+	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
+			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate, List<Ingredient> ingredient,
 			List<Utilisateur> utilisateur) {
+		
+		this.idRecette = idRecette;
 		this.nomRecette = nomRecette;
 		this.tempsPreparation = tempsPreparation;
 		this.tempsCuisson = tempsCuisson;
@@ -136,5 +137,7 @@ public class Recette {
 		this.ingredient = ingredient;
 		this.utilisateur = utilisateur;
 	}
+	
+	
 
 }

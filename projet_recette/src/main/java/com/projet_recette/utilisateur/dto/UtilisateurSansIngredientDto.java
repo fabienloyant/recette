@@ -4,6 +4,11 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.projet_recette.recette.dto.RecetteReduitDto;
+
+import lombok.Data;
+
+@Data
 public class UtilisateurSansIngredientDto {
 
 	private int id;
