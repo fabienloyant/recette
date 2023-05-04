@@ -1,6 +1,5 @@
 package com.projet_recette.utilisateur;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class Utilisateur {
 	private String nom;
 	
 	@Column(name="date_de_naissance", nullable = false)
-	private Timestamp dateDeNaissance;
+	private LocalDate dateDeNaissance;
 
 	@Column(name="login", length = 50, nullable = false)
 	private String login;
@@ -48,10 +47,10 @@ public class Utilisateur {
 	private String mdp;
 	
 	@Column(name="date_ajout", length = 50, nullable = false)
-	private LocalDate dateAjout;
+	private LocalDate dateAjout = LocalDate.now();
 	
 	@Column(name="last_update", length = 50, nullable = false)
-	private LocalDate lastUpdate;
+	private LocalDate lastUpdate = LocalDate.now();
 	
 	@ManyToMany
 	@JoinTable(name="utilisateur_ingredient",
@@ -65,15 +64,12 @@ public class Utilisateur {
 		inverseJoinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"))
 	private List <Recette> recette;
 	
-	public Utilisateur(String prenom, String nom, Timestamp dateDeNaissance, String login, String mdp,
-			LocalDate dateAjout, LocalDate lastUpdate) {
+	public Utilisateur(String prenom, String nom, LocalDate dateDeNaissance, String login, String mdp) {
 		this.prenom = prenom;
 		this.nom = nom;
 		this.dateDeNaissance = dateDeNaissance;
 		this.login = login;
 		this.mdp = mdp;
-		this.dateAjout = dateAjout;
-		this.lastUpdate = lastUpdate;
 	}
 
 	
