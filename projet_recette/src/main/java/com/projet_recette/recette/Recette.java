@@ -28,6 +28,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Recette {
 	
 	/*
@@ -53,16 +54,16 @@ public class Recette {
 	@Column (name = "nombre_de_personne", nullable = false)
 	private int nbPersonnes;
 	
-	@Column (name ="consignes", nullable = false)
+	@Column (name ="consignes", columnDefinition = "LONGTEXT", nullable = false)
 	private String consignes;
 	
 	@Column(name ="date_ajout")
 	@Temporal(TemporalType.DATE)
-	private LocalDate dateAjout;
+	private LocalDate dateAjout = LocalDate.now();
 	
 	@Column(name ="date_mis_a_jour")
 	@Temporal(TemporalType.DATE)
-	private LocalDate lastUpdate;
+	private LocalDate lastUpdate = LocalDate.now();
 	
 	
 	@ManyToMany
@@ -84,8 +85,8 @@ public class Recette {
 		this.tempsRepos = tempsRepos;
 		this.nbPersonnes = nbPersonnes;
 		this.consignes = consignes;
-		this.dateAjout = dateAjout;
-		this.lastUpdate = lastUpdate;
+		this.dateAjout = LocalDate.now();
+		this.lastUpdate = LocalDate.now();
 	}
 	
 	public Recette(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
@@ -99,8 +100,8 @@ public class Recette {
 		this.nbPersonnes = nbPersonnes;
 		this.consignes = consignes;
 		this.dateAjout = dateAjout;
-		this.lastUpdate = lastUpdate;
-		this.ingredient = ingredient;
+		this.dateAjout = LocalDate.now();
+		this.lastUpdate = LocalDate.now();
 	}
 
 
@@ -115,8 +116,8 @@ public class Recette {
 		this.tempsRepos = tempsRepos;
 		this.nbPersonnes = nbPersonnes;
 		this.consignes = consignes;
-		this.dateAjout = dateAjout;
-		this.lastUpdate = lastUpdate;
+		this.dateAjout = LocalDate.now();
+		this.lastUpdate = LocalDate.now();
 		this.utilisateur = utilisateur;
 	}
 
@@ -131,8 +132,8 @@ public class Recette {
 		this.tempsRepos = tempsRepos;
 		this.nbPersonnes = nbPersonnes;
 		this.consignes = consignes;
-		this.dateAjout = dateAjout;
-		this.lastUpdate = lastUpdate;
+		this.dateAjout = LocalDate.now();
+		this.lastUpdate = LocalDate.now();
 		this.ingredient = ingredient;
 		this.utilisateur = utilisateur;
 	}
