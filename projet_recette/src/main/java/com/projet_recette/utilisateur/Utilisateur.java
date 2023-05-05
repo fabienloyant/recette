@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.projet_recette.ingredient.Ingredient;
 import com.projet_recette.recette.Recette;
+
 import com.projet_recette.utilisateur_ingredient.UtilisateurIngredient;
 
 import jakarta.persistence.Column;

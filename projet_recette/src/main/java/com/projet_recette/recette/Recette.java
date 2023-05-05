@@ -4,21 +4,16 @@ package com.projet_recette.recette;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.ingredient.Ingredient;
-import com.projet_recette.utilisateur.Utilisateur;
-
+import com.projet_recette.utilsateur_recette.RecetteUtilisateur;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -66,77 +61,9 @@ public class Recette {
 	private LocalDate lastUpdate = LocalDate.now();
 	
 	
-	@ManyToMany
-	@JoinTable(name="recette_ingredient", //table intermédiaire entre recette et ingredient
-		joinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"),
-		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
-	private List <Ingredient> ingredient;
-	
-	@ManyToMany(mappedBy = "recette")
-	private List<Utilisateur> utilisateur ;
+	@OneToMany(mappedBy = "recette")
+	private List<RecetteUtilisateur> recetteUtilisateur ;
 
-	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
-			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate) {
-		super();
-		this.idRecette = idRecette;
-		this.nomRecette = nomRecette;
-		this.tempsPreparation = tempsPreparation;
-		this.tempsCuisson = tempsCuisson;
-		this.tempsRepos = tempsRepos;
-		this.nbPersonnes = nbPersonnes;
-		this.consignes = consignes;
-		this.dateAjout = LocalDate.now();
-		this.lastUpdate = LocalDate.now();
-	}
-	
-	public Recette(int idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
-			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
-			List<Ingredient> ingredient) {
-		this.idRecette = idRecette;
-		this.nomRecette = nomRecette;
-		this.tempsPreparation = tempsPreparation;
-		this.tempsCuisson = tempsCuisson;
-		this.tempsRepos = tempsRepos;
-		this.nbPersonnes = nbPersonnes;
-		this.consignes = consignes;
-		this.dateAjout = dateAjout;
-		this.dateAjout = LocalDate.now();
-		this.lastUpdate = LocalDate.now();
-	}
-
-
-	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
-			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate,
-			List<Utilisateur> utilisateur) {
-		
-		this.idRecette = idRecette;
-		this.nomRecette = nomRecette;
-		this.tempsPreparation = tempsPreparation;
-		this.tempsCuisson = tempsCuisson;
-		this.tempsRepos = tempsRepos;
-		this.nbPersonnes = nbPersonnes;
-		this.consignes = consignes;
-		this.dateAjout = LocalDate.now();
-		this.lastUpdate = LocalDate.now();
-		this.utilisateur = utilisateur;
-	}
-
-	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
-			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate, List<Ingredient> ingredient,
-			List<Utilisateur> utilisateur) {
-		
-		this.idRecette = idRecette;
-		this.nomRecette = nomRecette;
-		this.tempsPreparation = tempsPreparation;
-		this.tempsCuisson = tempsCuisson;
-		this.tempsRepos = tempsRepos;
-		this.nbPersonnes = nbPersonnes;
-		this.consignes = consignes;
-		this.dateAjout = LocalDate.now();
-		this.lastUpdate = LocalDate.now();
-		this.ingredient = ingredient;
-		this.utilisateur = utilisateur;
-	}
 	
 	
 
