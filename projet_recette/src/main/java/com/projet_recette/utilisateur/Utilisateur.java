@@ -1,18 +1,14 @@
 package com.projet_recette.utilisateur;
 
 import java.time.LocalDate;
-import java.util.List;
 
 
-import com.projet_recette.utilisateur_ingredient.UtilisateurIngredient;
-import com.projet_recette.utilsateur_recette.UtilisateurRecette;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -50,13 +46,7 @@ public class Utilisateur {
 	
 	@Column(name="last_update", length = 50, nullable = false)
 	private LocalDate lastUpdate = LocalDate.now();
-	
-	@OneToMany
-	private List <UtilisateurIngredient> utilisateurIngredient;
-	
-	@OneToMany
-	private List <UtilisateurRecette> utilisateurRecette;
-	
+
 	public Utilisateur(String prenom, String nom, LocalDate dateDeNaissance, String login, String mdp) {
 		this.prenom = prenom;
 		this.nom = nom;

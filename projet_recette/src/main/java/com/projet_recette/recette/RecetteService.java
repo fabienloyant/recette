@@ -47,12 +47,12 @@ public class RecetteService {
 		return recetteRepository.findById(recette.getIdRecette()).orElseGet(() -> recetteRepository.save(recette));
 	}
 	
-	public Recette addIngredient(Integer id , Ingredient ingredient) {
-		Recette recette = recetteRepository.findById(id)
-							.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recette non trouvée") );
-		Ingredient ingredientSauvegarde = ingredientService.findOrInsertIngredient(ingredient);
-		recette.getIngredient().add(ingredientSauvegarde);
-		recetteRepository.save(recette);
-		return findById(id);
-	}
+//	public Recette addIngredient(Integer id , Ingredient ingredient) {
+//		Recette recette = recetteRepository.findById(id)
+//							.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recette non trouvée") );
+//		Ingredient ingredientSauvegarde = ingredientService.findOrInsertIngredient(ingredient);
+//		recette.getIngredient().add(ingredientSauvegarde);
+//		recetteRepository.save(recette);
+//		return findById(id);
+//	}
 }
