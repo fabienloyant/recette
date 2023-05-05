@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.projet_recette.ingredient.Ingredient;
 import com.projet_recette.recette.Recette;
+import com.projet_recette.utilsateur_recette.RecetteUtilisateur;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -52,17 +54,10 @@ public class Utilisateur {
 	@Column(name="last_update", length = 50, nullable = false)
 	private LocalDate lastUpdate = LocalDate.now();
 	
-	@ManyToMany
-	@JoinTable(name="utilisateur_ingredient",
-		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
-		inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName = "id_ingredient"))
-	private List <Ingredient> ingredient;
 	
-	@ManyToMany
-	@JoinTable(name="utilisateur_recette",
-		joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur"),
-		inverseJoinColumns = @JoinColumn(name = "id_recette", referencedColumnName = "id_recette"))
-	private List <Recette> recette;
+	@OneToMany(mappedBy = "utilisateur")
+	private List<RecetteUtilisateur> recetteUtilisateur ;
+	
 	
 	public Utilisateur(String prenom, String nom, LocalDate dateDeNaissance, String login, String mdp) {
 		this.prenom = prenom;
