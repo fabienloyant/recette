@@ -2,6 +2,7 @@ package com.projet_recette.ingredient;
 
 import java.util.List;
 
+import com.projet_recette.ingredient_recette.IngredientRecette;
 import com.projet_recette.recette.Recette;
 import com.projet_recette.utilisateur.Utilisateur;
 
@@ -11,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -47,34 +49,31 @@ public class Ingredient {
 	private TypeIngredient typeIngredient; // enum
 	
 	
-	@ManyToMany(mappedBy = "ingredient")
-	private List<Utilisateur> utilisateur ;
+	@OneToMany
+	private List<IngredientRecette> ingredientRecette;
 	
-	@ManyToMany (mappedBy = "ingredient")
-	private List <Recette> recette;
-;
+	//@OneToMany
+	//private List <UtilisateurIngredient> UtilisateurIngredient;
+	
+//	@ManyToMany(mappedBy = "ingredient")
+//	private List<Utilisateur> utilisateur ;
+//	
+//	@ManyToMany (mappedBy = "ingredient")
+//	private List <Recette> recette;
+
 	
 	/***************************************************************************
 	 * Constructeurs
 	 ****************************************************************************/
-	public Ingredient(int id, String nom) {
-		this.id = id;
-		this.nom = nom;
-	}
-	
-	public Ingredient(int id, String nom, Unite unite) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.unite = unite;
-	}
-	
-	public Ingredient(int id, String nom, Unite unite, TypeIngredient typeIngredient) {
-		super();
+
+	public Ingredient(int id, String nom, Unite unite, TypeIngredient typeIngredient, //UtilisateurIngredient utilisateurIngredient,
+			List<IngredientRecette> ingredientRecette) {
 		this.id = id;
 		this.nom = nom;
 		this.unite = unite;
 		this.typeIngredient = typeIngredient;
+		//this.UtilisateurIngredient = utilisateurIngredient;
+		this.ingredientRecette = ingredientRecette;
 	}
 
 }

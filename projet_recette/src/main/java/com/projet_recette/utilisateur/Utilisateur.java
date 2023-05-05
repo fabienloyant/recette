@@ -5,7 +5,8 @@ import java.util.List;
 
 import com.projet_recette.ingredient.Ingredient;
 import com.projet_recette.recette.Recette;
-import com.projet_recette.utilsateur_recette.RecetteUtilisateur;
+
+import com.projet_recette.utilisateur_ingredient.UtilisateurIngredient;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +15,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,10 +54,11 @@ public class Utilisateur {
 	@Column(name="last_update", length = 50, nullable = false)
 	private LocalDate lastUpdate = LocalDate.now();
 	
+	@OneToMany
+	private List <UtilisateurIngredient> utilisateurIngredient;
 	
-	@OneToMany(mappedBy = "utilisateur")
-	private List<RecetteUtilisateur> recetteUtilisateur ;
-	
+	@OneToMany
+	private List <UtilisateurRecette> utilisateurRecette;
 	
 	public Utilisateur(String prenom, String nom, LocalDate dateDeNaissance, String login, String mdp) {
 		this.prenom = prenom;

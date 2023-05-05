@@ -17,8 +17,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Service
-@Getter
-@Setter
 public class UtilisateurService {
 
 	private final UtilisateurRepository utilisateurRepository;
@@ -44,23 +42,23 @@ public class UtilisateurService {
 		return utilisateur;
 	}
 	
-	public Utilisateur addIngredient(int id, Ingredient ingredient) {
-		Utilisateur utilisateur = utilisateurRepository.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
-		Ingredient ingredientSauvegarde = ingredientService.findOrInsertIngredient(ingredient);
-		utilisateur.getIngredient().add(ingredientSauvegarde);
-		utilisateurRepository.save(utilisateur);
-		return findById(id);
-	}
-	
-	public Utilisateur addRecette(int id, Recette recette) {
-		Utilisateur utilisateur = utilisateurRepository.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
-		Recette recetteSauvegarde = recetteService.findOrInsertRecette(recette);
-		utilisateur.getRecette().add(recetteSauvegarde);
-		utilisateurRepository.save(utilisateur);
-		return findById(id);
-	}
+//	public Utilisateur addIngredient(int id, Ingredient ingredient) {
+//		Utilisateur utilisateur = utilisateurRepository.findById(id)
+//				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+//		Ingredient ingredientSauvegarde = ingredientService.findOrInsertIngredient(ingredient);
+//		utilisateur.getIngredient().add(ingredientSauvegarde);
+//		utilisateurRepository.save(utilisateur);
+//		return findById(id);
+//	}
+//	
+//	public Utilisateur addRecette(int id, Recette recette) {
+//		Utilisateur utilisateur = utilisateurRepository.findById(id)
+//				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+//		Recette recetteSauvegarde = recetteService.findOrInsertRecette(recette);
+//		utilisateur.getRecette().add(recetteSauvegarde);
+//		utilisateurRepository.save(utilisateur);
+//		return findById(id);
+//	}
 
 	public Utilisateur update(Utilisateur utilisateur) {
 		deleteById(utilisateur.getId());

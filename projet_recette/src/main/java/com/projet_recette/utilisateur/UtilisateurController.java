@@ -45,8 +45,8 @@ public class UtilisateurController {
 		utilisateurService.update(utilisateur);
 	}
 	
-	@DeleteMapping("/deletebyid")
-	public void deleteById(@RequestParam int id) {
+	@DeleteMapping("/{id}")
+	public void deleteById(@PathVariable int id) {
 		utilisateurService.deleteById(id);
 	}
 	

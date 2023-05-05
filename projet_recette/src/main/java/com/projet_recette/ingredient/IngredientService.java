@@ -24,7 +24,7 @@ public class IngredientService {
 		
 	//findById
 	public Ingredient findById(int id) {
-		return ingredientRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ingredient non trouvée")); //renvoie un message personnalisé de l'erreur
+		return ingredientRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ingredient non trouvé")); //renvoie un message personnalisé de l'erreur
 	}
 		
 		
