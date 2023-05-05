@@ -3,18 +3,15 @@ package com.projet_recette.utilisateur;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.ingredient.Ingredient;
-import com.projet_recette.recette.Recette;
 
 import com.projet_recette.utilisateur_ingredient.UtilisateurIngredient;
+import com.projet_recette.utilsateur_recette.UtilisateurRecette;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
