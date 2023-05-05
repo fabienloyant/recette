@@ -4,7 +4,7 @@ package com.projet_recette.recette;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.projet_recette.utilsateur_recette.RecetteUtilisateur;
+import com.projet_recette.utilsateur_recette.UtilisateurRecette;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -62,7 +62,7 @@ public class Recette {
 	
 	
 	@OneToMany(mappedBy = "recette")
-	private List<RecetteUtilisateur> recetteUtilisateur ;
+	private List<UtilisateurRecette> utilisateurRecette;
 
 	
 	
