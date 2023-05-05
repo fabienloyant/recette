@@ -1,4 +1,4 @@
-package com.projet_recette.utilsateur_recette;
+package com.projet_recette.utilisateur_recette;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
