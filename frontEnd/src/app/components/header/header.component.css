@@ -1,0 +1,17 @@
+#header {
+    display: flex;
+    background-color: blue;
+}
+
+#logo {
+    width: 25%;
+    background-color: red;
+}
+
+#logo-img {
+    width: 25%;
+}
+
+#navbar {
+    background-color: green;
+}
