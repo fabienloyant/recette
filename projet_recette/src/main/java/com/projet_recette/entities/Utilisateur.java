@@ -46,6 +46,9 @@ public class Utilisateur {
 	
 	@Column(name="last_update", length = 50, nullable = false)
 	private LocalDate lastUpdate = LocalDate.now();
+	
+	@Column(name="role", nullable = false)
+	private String role = "ROLE_USER";
 
 	public Utilisateur(String prenom, String nom, LocalDate dateDeNaissance, String login, String mdp) {
 		this.prenom = prenom;
