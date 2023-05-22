@@ -1,3 +1,5 @@
+/*
+
 package com.projet_recette.controller;
 
 import org.springframework.security.core.Authentication;
@@ -32,7 +34,7 @@ public class AuthController {
 	/**
 	 * 
 	 * @return
-	 */
+	 
 	@PostMapping("/login")
 	public String login(Authentication authentication) {
 		return token.generateToken(authentication);
@@ -44,3 +46,5 @@ public class AuthController {
 	}
 	
 }
+
+*/

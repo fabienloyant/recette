@@ -1,3 +1,5 @@
+/*
+
 package com.projet_recette.model;
 
 import java.util.Arrays;
@@ -62,3 +64,5 @@ public class SecurityUser implements UserDetails {
 	}
 	
 }
+
+*/
