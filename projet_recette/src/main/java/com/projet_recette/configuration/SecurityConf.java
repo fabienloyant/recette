@@ -1,3 +1,5 @@
+/*
+
 package com.projet_recette.configuration;
 
 import java.util.Collections;
@@ -93,4 +95,6 @@ public class SecurityConf {
 		
 	}
 }
+
+*/
 

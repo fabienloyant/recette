@@ -1,3 +1,5 @@
+/*
+
 package com.projet_recette.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,3 +31,5 @@ public class JpaDetailsService implements UserDetailsService {
 		}	
 	}	
 }
+
+*/
