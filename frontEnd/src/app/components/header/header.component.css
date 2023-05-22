@@ -1,17 +1,17 @@
+/* flex-direction justify-content */
+
 #header {
     display: flex;
-    background-color: blue;
 }
 
 #logo {
-    width: 25%;
-    background-color: red;
+    width: 7%;
 }
 
 #logo-img {
-    width: 25%;
+    width: 100%;
 }
 
 #navbar {
-    background-color: green;
+    width: 93%;
 }
