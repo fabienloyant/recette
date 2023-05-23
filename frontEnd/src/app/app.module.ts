@@ -7,6 +7,7 @@ import { ConnexionFormComponent } from './layouts/connexion-form/connexion-form.
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DescriptionComponent } from './layouts/description/description.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ConnexionFormComponent,
     FooterComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
