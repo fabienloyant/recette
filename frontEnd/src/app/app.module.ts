@@ -12,6 +12,7 @@ import { InscriptionFormComponent } from './layouts/inscription-form/inscription
 import { HomeComponent } from './pages/home/home.component';
 import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients/formulaire-ingredients.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { AfficherIngredientComponent } from './layouts/afficher-ingredient/afficher-ingredient.component';
 import { FiltreRecettesComponent } from './layouts/filtre-recettes/filtre-recettes.component';
 import { TableauRecettesComponent } from './layouts/tableau-recettes/tableau-recettes.component';
 import { RecettesComponent } from './pages/recettes/recettes.component';
@@ -29,9 +30,10 @@ import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.c
     HomeComponent,
     DescriptionComponent,
     FormulaireIngredientsComponent,
+    AfficherIngredientComponent,
     FiltreRecettesComponent,
     TableauRecettesComponent,
-    RecettesComponent
+    RecettesComponent,
     GestionCompteFormComponent,
     ModifMdpFormComponent
   ],

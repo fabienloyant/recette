@@ -1,0 +1,25 @@
+.fiche{
+    height: 100vh;
+    background-color: green;
+    
+}
+
+#liste{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline black;
+    font-family: "Fira Sans", Arial, sans-serif;
+    font-size: 26px;
+}
+
+#tab{
+    display: flex;
+}
+
+.table{
+    
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+
+}
