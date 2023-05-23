@@ -1,0 +1,39 @@
+#pageInscrip {
+    background-color: rgba(236, 207, 75, 0.911);
+}
+
+.form {
+    display: flex;
+}
+
+#titre {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mb-3{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 90%;
+    padding-left: 20%;
+}
+
+#champ {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+
+#boutons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+

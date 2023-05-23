@@ -1,0 +1,45 @@
+<div id="pageInscrip">
+    <div id="titre">
+        <h1> Inscription </h1>
+    </div>
+
+    <form class="form"> 
+        <div id="champ">
+            <div class="mb-3">
+                <label for="prenom" class="form-label"> Prénom </label>
+                <input type="text" formControlName="prenom" class="form-control" placeholder="Entrez votre prénom" id="prenom" aria-describedby="prenom">
+            </div>
+                
+            <br>
+            <div class="mb-3">
+                <label for="nom" class="form-label"> Nom </label>
+                <input type="text" formControlName="nom" class="form-control" placeholder="Entrez votre nom" id="nom" aria-describedby="nom">
+            </div>
+                
+            <br>
+            <div class="mb-3">
+                <label for="date" class="form-label"> Date de naissance </label>
+                <input type="date" formControlName="date" class="form-control" id="date" aria-describedby="date">
+            </div>
+
+            <br>
+            <div class="mb-3">
+                <label for="email" class="form-label"> Email </label>
+                <input type="email" formControlName="email" class="form-control" placeholder="Entrez votre email" id="email" aria-describedby="email">
+            </div> 
+
+            <br>
+            <div class="mb-3">
+                <label for="password" class="form-label"> Mot de passe </label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Entrez un mot de passe" id="password">  
+                <br> <p> Le mot de passe doit contenir au moins 8 caractères, une lettre et un chiffre </p>
+            </div>
+        </div>
+        
+            <div id="boutons">
+                <button type="button" class="btn btn-primary"> S'inscrire </button>
+                <br>
+                <button type="button" class="btn btn-danger"> Annuler </button>
+            </div>
+    </form>
+</div>
