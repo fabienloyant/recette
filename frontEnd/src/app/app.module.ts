@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InscriptionFormComponent } from './layouts/inscription-form/inscription-form.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients/formulaire-ingredients.component';
 import { DescriptionComponent } from './components/description/description.component';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DescriptionComponent } from './components/description/description.compo
     NavbarComponent,
     InscriptionFormComponent,
     HomeComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    FormulaireIngredientsComponent
   ],
   imports: [
     BrowserModule,
