@@ -15,6 +15,8 @@ import { DescriptionComponent } from './components/description/description.compo
 import { FiltreRecettesComponent } from './layouts/filtre-recettes/filtre-recettes.component';
 import { TableauRecettesComponent } from './layouts/tableau-recettes/tableau-recettes.component';
 import { RecettesComponent } from './pages/recettes/recettes.component';
+import { GestionCompteFormComponent } from './layouts/gestion-compte-form/gestion-compte-form.component';
+import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { RecettesComponent } from './pages/recettes/recettes.component';
     FiltreRecettesComponent,
     TableauRecettesComponent,
     RecettesComponent
+    GestionCompteFormComponent,
+    ModifMdpFormComponent
   ],
   imports: [
     BrowserModule,
