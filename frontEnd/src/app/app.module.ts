@@ -19,6 +19,11 @@ import { RecettesComponent } from './pages/recettes/recettes.component';
 import { GestionCompteFormComponent } from './layouts/gestion-compte-form/gestion-compte-form.component';
 import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.component';
 import { UpdateQuantIngredientComponent } from './layouts/update-quant-ingredient/update-quant-ingredient.component';
+import { IngredientsComponent } from './pages/ingredients/ingredients.component';
+import { ModifierIngredientComponent } from './pages/modifier-ingredient/modifier-ingredient.component';
+import { GestionCompteComponent } from './pages/gestion-compte/gestion-compte.component';
+import { ModifierMdpComponent } from './pages/modifier-mdp/modifier-mdp.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { UpdateQuantIngredientComponent } from './layouts/update-quant-ingredien
     RecettesComponent,
     GestionCompteFormComponent,
     ModifMdpFormComponent,
-    UpdateQuantIngredientComponent
+    UpdateQuantIngredientComponent,
+    IngredientsComponent,
+    ModifierIngredientComponent,
+    GestionCompteComponent,
+    ModifierMdpComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
