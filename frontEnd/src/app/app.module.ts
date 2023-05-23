@@ -12,6 +12,7 @@ import { InscriptionFormComponent } from './layouts/inscription-form/inscription
 import { HomeComponent } from './pages/home/home.component';
 import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients/formulaire-ingredients.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { AfficherIngredientComponent } from './layouts/afficher-ingredient/afficher-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DescriptionComponent } from './components/description/description.compo
     InscriptionFormComponent,
     HomeComponent,
     DescriptionComponent,
-    FormulaireIngredientsComponent
+    FormulaireIngredientsComponent,
+    AfficherIngredientComponent,
   ],
   imports: [
     BrowserModule,
