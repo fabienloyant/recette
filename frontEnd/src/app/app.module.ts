@@ -12,6 +12,8 @@ import { InscriptionFormComponent } from './layouts/inscription-form/inscription
 import { HomeComponent } from './pages/home/home.component';
 import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients/formulaire-ingredients.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { GestionCompteFormComponent } from './layouts/gestion-compte-form/gestion-compte-form.component';
+import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { DescriptionComponent } from './components/description/description.compo
     InscriptionFormComponent,
     HomeComponent,
     DescriptionComponent,
-    FormulaireIngredientsComponent
+    FormulaireIngredientsComponent,
+    GestionCompteFormComponent,
+    ModifMdpFormComponent
   ],
   imports: [
     BrowserModule,
