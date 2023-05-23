@@ -12,6 +12,9 @@ import { InscriptionFormComponent } from './layouts/inscription-form/inscription
 import { HomeComponent } from './pages/home/home.component';
 import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients/formulaire-ingredients.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { FiltreRecettesComponent } from './layouts/filtre-recettes/filtre-recettes.component';
+import { TableauRecettesComponent } from './layouts/tableau-recettes/tableau-recettes.component';
+import { RecettesComponent } from './pages/recettes/recettes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { DescriptionComponent } from './components/description/description.compo
     InscriptionFormComponent,
     HomeComponent,
     DescriptionComponent,
-    FormulaireIngredientsComponent
+    FormulaireIngredientsComponent,
+    FiltreRecettesComponent,
+    TableauRecettesComponent,
+    RecettesComponent
   ],
   imports: [
     BrowserModule,
