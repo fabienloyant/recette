@@ -13,6 +13,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients/formulaire-ingredients.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { AfficherIngredientComponent } from './layouts/afficher-ingredient/afficher-ingredient.component';
+import { FiltreRecettesComponent } from './layouts/filtre-recettes/filtre-recettes.component';
+import { TableauRecettesComponent } from './layouts/tableau-recettes/tableau-recettes.component';
+import { RecettesComponent } from './pages/recettes/recettes.component';
+import { GestionCompteFormComponent } from './layouts/gestion-compte-form/gestion-compte-form.component';
+import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import { AfficherIngredientComponent } from './layouts/afficher-ingredient/affic
     DescriptionComponent,
     FormulaireIngredientsComponent,
     AfficherIngredientComponent,
+    FiltreRecettesComponent,
+    TableauRecettesComponent,
+    RecettesComponent,
+    GestionCompteFormComponent,
+    ModifMdpFormComponent
   ],
   imports: [
     BrowserModule,
