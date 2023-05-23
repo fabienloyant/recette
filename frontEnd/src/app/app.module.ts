@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InscriptionFormComponent } from './layouts/inscription-form/inscription-form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { InscriptionFormComponent } from './layouts/inscription-form/inscription
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
-    InscriptionFormComponent
+    InscriptionFormComponent,
+    HomeComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
