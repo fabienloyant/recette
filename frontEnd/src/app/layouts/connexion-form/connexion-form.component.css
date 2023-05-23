@@ -6,7 +6,7 @@
 .description{
     float: left;
     width: 50%;
-    height: 30vh;
+    height: 50vh;
     background-color: red;
     display: flex;
     justify-content: center;
@@ -15,9 +15,10 @@
 
 .form {
     display: flex;
+    width: 50%;
     background-color: grey;
     justify-content: center;
-    height: 30vh;
+    height: 50vh;
 }
 
 
