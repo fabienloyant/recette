@@ -1,0 +1,8 @@
+#filtre-recettes {
+    display: flex;
+    justify-content: space-around;
+}
+
+#filtre-ingredient {
+    margin-left: 5px;
+}

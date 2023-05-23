@@ -1,6 +1,5 @@
 .form {
     display: flex;
-    width: 50%;
     background-color: grey;
     justify-content: center;
     height: 50vh;
