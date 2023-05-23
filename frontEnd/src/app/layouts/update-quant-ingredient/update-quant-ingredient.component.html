@@ -1,0 +1,29 @@
+<div id="pageUpdateQuantite">
+
+    <div id="titre">
+        <h1> Modification de la quantité de l'ingrédient </h1>
+    </div>
+
+    <div id="nomIngredient">
+        <h2> ingrédient a modif </h2> <!-- affiche le légume dont on aura cliqué sur modifier -->
+    </div>
+
+    <div id="quantite">
+        <div class="mb-3">
+            <h3> Quantité actuelle </h3> <br>
+            <p> valeur quantité actuelle + unité </p> <!-- affiche la valeur et unité connue dans la bdd -->
+        </div>
+
+        <div class="mb-3">
+            <h3> Modification de la quantité </h3>
+            <input type="number" step ="0.01" formControlName="quantite" class="form-control" placeholder="Quantité à modifier" id="quantite">
+            <p> unité en g, ml ou ingrédient </p>
+        </div>
+
+        <div id="boutons">
+            <button type="button" class="btn btn-success"> + </button>
+            <br>
+            <button type="button" class="btn btn-danger"> - </button>
+        </div>
+    </div>
+</div>

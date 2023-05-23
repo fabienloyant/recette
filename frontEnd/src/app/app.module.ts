@@ -14,6 +14,7 @@ import { FormulaireIngredientsComponent } from './layouts/formulaire-ingredients
 import { DescriptionComponent } from './components/description/description.component';
 import { GestionCompteFormComponent } from './layouts/gestion-compte-form/gestion-compte-form.component';
 import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.component';
+import { UpdateQuantIngredientComponent } from './layouts/update-quant-ingredient/update-quant-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ModifMdpFormComponent } from './layouts/modif-mdp-form/modif-mdp-form.c
     DescriptionComponent,
     FormulaireIngredientsComponent,
     GestionCompteFormComponent,
-    ModifMdpFormComponent
+    ModifMdpFormComponent,
+    UpdateQuantIngredientComponent
   ],
   imports: [
     BrowserModule,
