@@ -1,0 +1,34 @@
+.container{
+    width: 100%;
+    height: 100%;
+
+}
+.description{
+    float: left;
+    width: 50%;
+    height: 30vh;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    background-color: grey;
+    justify-content: center;
+    height: 30vh;
+}
+
+
+
+.mb-3{
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#conn{
+    display: flex ;
+    justify-content: center;
+}
