@@ -11,7 +11,7 @@ import { GestionCompteComponent } from './pages/gestion-compte/gestion-compte.co
 import { ModifierMdpComponent } from './pages/modifier-mdp/modifier-mdp.component';
 
 const routes: Routes = [
-  {path: 'ing', component: IngredientsComponent},
+  {path: 'ingredient', component: IngredientsComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'recette', component: RecettesComponent},
   {path: 'modifieringredient', component: ModifierIngredientComponent},

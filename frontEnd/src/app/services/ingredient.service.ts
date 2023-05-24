@@ -39,10 +39,13 @@ export class IngredientService {
     return this.ingredientMock
   }
 
-  getIngredientsByType = () => {
-   
+  //méthode pour faire un filtre (afficher les ingredients que quand type ingredient est legume ) MAIS ne marche pas 
+  getIngredientByType = () => {
+    const ingredients = [this.ingredientMock];
+    const result = ingredients.filter(ingredient => TypeIngredient.legume);
+    console.log(result);
   }
-
+// Expected output: Array ["exuberant", "destruction", "present"]
 
   //méthode ajout ingredient
   addIngredient = (data: IngredientInterface): Observable<IngredientInterface> => {
