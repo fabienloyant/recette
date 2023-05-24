@@ -1,13 +1,12 @@
 package com.projet_recette.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.projet_recette.entities.Ingredient;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projet_recette.entities.Recette;
 import com.projet_recette.repository.RecetteRepository;
 
@@ -15,11 +14,12 @@ import com.projet_recette.repository.RecetteRepository;
 public class RecetteService {
 	private final RecetteRepository recetteRepository;
 	
-	private final IngredientService ingredientService;
+	private final ObjectMapper objectMapper;
 	
-	public RecetteService(RecetteRepository recetteRepository, IngredientService ingredientService) {
+	
+	public RecetteService(RecetteRepository recetteRepository, ObjectMapper objectMapper) {
 		this.recetteRepository = recetteRepository;
-		this.ingredientService = ingredientService;
+		this.objectMapper = objectMapper;
 	}
 	
 	public List<Recette> findAll(){

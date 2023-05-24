@@ -18,8 +18,11 @@ public class IngredientCompletDto {
 	private Unite unite;
 	private TypeIngredient typeIngredient;
 	
+	private double quantite;
+	
 	private List<RecetteSansIngredientDto> recette = new ArrayList<>();
 	
 	private List<UtilisateurSansIngredientDto> utilisateur = new ArrayList<>();
+	
 
 }

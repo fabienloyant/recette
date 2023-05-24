@@ -12,5 +12,8 @@ public class IngredientReduitDto {
 	private String nom; 
 	private Unite unite;
 	private TypeIngredient typeIngredient;
+	
+	private double quantite;
+	
 
 }

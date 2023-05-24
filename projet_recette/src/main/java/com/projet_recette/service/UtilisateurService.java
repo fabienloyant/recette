@@ -7,7 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.projet_recette.dto.ingredient.IngredientReduitDto;
 import com.projet_recette.dto.utilisateur.UtilisateurCompletDto;
 import com.projet_recette.entities.Ingredient;
@@ -29,12 +33,19 @@ public class UtilisateurService {
 	private final UtilisateurIngredientService utilisateurIngredientService;
 	private final ObjectMapper objectMapper;
 	
+	
+	
 	public UtilisateurService(UtilisateurRepository utilisateurRepository, IngredientService ingredientService, RecetteService recetteService, UtilisateurIngredientService utilisateurIngredientService) {
 		this.utilisateurRepository = utilisateurRepository;
 		this.ingredientService = ingredientService;
 		this.recetteService = recetteService;
 		this.utilisateurIngredientService = utilisateurIngredientService;
 		this.objectMapper = new ObjectMapper();
+//		this.objectMapper.registerModule(new Jdk8Module());
+//		this.objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		objectMapper.registerModule(new JavaTimeModule());
+		
 	}
 	
 	public List<Utilisateur> findAll() {
@@ -46,11 +57,15 @@ public class UtilisateurService {
 	}
 	
 	public UtilisateurCompletDto findByIdWithIngredients(int id) {
+		
+		
+		
 		Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 		UtilisateurCompletDto utilisateurComplet = objectMapper.convertValue(utilisateur, UtilisateurCompletDto.class);
 		List<UtilisateurIngredient> utilisateurIngredientList = utilisateurIngredientService.findByUtilisateurId(id);
-		List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> objectMapper.convertValue(utilisateurIngredient, IngredientReduitDto.class)).toList();
+		List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> objectMapper.convertValue(utilisateurIngredient.getIngredient(), IngredientReduitDto.class)).toList();
 		utilisateurComplet.setIngredients(ingredientReduitList);
+		
 		return utilisateurComplet;
 	}
 	

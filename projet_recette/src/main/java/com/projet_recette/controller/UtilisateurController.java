@@ -39,7 +39,7 @@ public class UtilisateurController {
 		return utilisateurService.findById(id);
 	}
 	
-	@GetMapping("/withingredients/{id}")
+	@GetMapping("{id}/withingredients")
 	public UtilisateurCompletDto findByIdWithIngredients(@PathVariable int id) {
 		return utilisateurService.findByIdWithIngredients(id);
 	}

@@ -64,7 +64,7 @@ public class IngredientController {
 	/************************************
 	 * 	PUT
 	 *************************************/
-	@PutMapping
+	@PutMapping("/{id}")
 	public Ingredient update(@PathVariable int  id, @RequestBody Ingredient ingredient) {
 		return this.ingredientService.update(id,ingredient);
 	}
