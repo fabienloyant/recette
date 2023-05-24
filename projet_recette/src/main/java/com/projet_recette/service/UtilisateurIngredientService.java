@@ -9,6 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.projet_recette.entities.Ingredient;
 import com.projet_recette.entities.Recette;
+import com.projet_recette.entities.Utilisateur;
 import com.projet_recette.entities.UtilisateurIngredient;
 import com.projet_recette.repository.IngredientRepository;
 import com.projet_recette.repository.UtilisateurIngredientRepository;
@@ -44,10 +45,14 @@ public class UtilisateurIngredientService {
 		return utilisateurIngredient;
 	}
 
-	public UtilisateurIngredient update(UtilisateurIngredient utilisateurIngredient) {
-		deleteById(utilisateurIngredient.getId());
-		utilisateurIngredientRepository.save(utilisateurIngredient);
-		return utilisateurIngredient;
+	public UtilisateurIngredient update(int id ,UtilisateurIngredient utilisateurIngredient) {
+		UtilisateurIngredient uiFromBD = this.findById(id);
+		uiFromBD.setId(utilisateurIngredient.getId());
+		uiFromBD.setQuantite(utilisateurIngredient.getQuantite());
+		uiFromBD.setIngredient(utilisateurIngredient.getIngredient());
+		uiFromBD.setUtilisateur(utilisateurIngredient.getUtilisateur());
+		
+		return uiFromBD;
 	}
 	
 	public void deleteById(int id) {

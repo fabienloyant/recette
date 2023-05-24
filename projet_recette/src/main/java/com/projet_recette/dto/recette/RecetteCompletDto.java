@@ -20,6 +20,7 @@ public class RecetteCompletDto {
 	private String consignes;
 	private LocalDate dateAjout;
 	private LocalDate lastUpdate;
+	private double quantite;
 	
 	private List<IngredientSansRecetteDto> ingredient;
 

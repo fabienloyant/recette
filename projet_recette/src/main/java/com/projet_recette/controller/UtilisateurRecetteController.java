@@ -37,7 +37,7 @@ public class UtilisateurRecetteController {
 		
 	}
 	@PostMapping
-	public UtilisateurRecette save(UtilisateurRecette utilisateurRecette) {
+	public UtilisateurRecette save(@RequestBody UtilisateurRecette utilisateurRecette) {
 		return utilisateurRecetteService.save(utilisateurRecette);
 	}
 	
@@ -50,8 +50,8 @@ public class UtilisateurRecetteController {
 		utilisateurRecetteService.deleteAll();
 	}
 	
-	@PutMapping
-	public void update(@RequestBody UtilisateurRecette utilisateurRecette) {
-		utilisateurRecetteService.update(utilisateurRecette);
+	@PutMapping("{id}")
+	public UtilisateurRecette update(@PathVariable int id, @RequestBody UtilisateurRecette utilisateurRecette) {
+		return utilisateurRecetteService.update(id,utilisateurRecette);
 	}
 }

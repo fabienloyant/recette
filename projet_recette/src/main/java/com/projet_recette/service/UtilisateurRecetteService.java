@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.projet_recette.entities.Utilisateur;
 import com.projet_recette.entities.UtilisateurRecette;
 import com.projet_recette.repository.UtilisateurRecetteRepository;
 
@@ -27,6 +28,9 @@ public class UtilisateurRecetteService {
 		return utilisateurRecetteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "UtilisateurRecette non trouvé"));
 	}
 	
+	public List<UtilisateurRecette> findByUtilisateur(int id) {
+		return utilisateurRecetteRepository.findByUtilisateur(id);
+	}
 	
 	public UtilisateurRecette save(UtilisateurRecette utilisateurRecette) {
 		return utilisateurRecetteRepository.save(utilisateurRecette);
@@ -43,9 +47,13 @@ public class UtilisateurRecetteService {
 	}
 	
 
-	public UtilisateurRecette update(UtilisateurRecette utilisateurRecette) {
-		deleteById(utilisateurRecette.getId());
-		utilisateurRecetteRepository.save(utilisateurRecette);
-		return utilisateurRecette;
+	public UtilisateurRecette update(int id,UtilisateurRecette utilisateurRecette) {
+		UtilisateurRecette urFromBD = this.findById(id);
+		
+		urFromBD.setId(utilisateurRecette.getId());
+		urFromBD.setRecette(utilisateurRecette.getRecette());
+		urFromBD.setUtilisateur(utilisateurRecette.getUtilisateur());
+
+		return urFromBD;
 	}
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projet_recette.dto.recette.RecetteCompletDto;
 import com.projet_recette.entities.Recette;
 import com.projet_recette.service.RecetteService;
 
@@ -33,6 +34,11 @@ public class RecetteController {
 	@GetMapping ("/{id}")
 	public Recette findById(@PathVariable int  id) {
 		return recetteService.findById(id);
+	}
+	
+	@GetMapping("{id}/complet")
+	public RecetteCompletDto afficherRecette(@PathVariable int id) {
+		return recetteService.ListIngredient(id);
 	}
 	
 	@PostMapping
