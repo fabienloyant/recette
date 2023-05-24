@@ -17,7 +17,7 @@ import com.projet_recette.service.RecetteService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("recette")
+@RequestMapping("/recette")
 public class RecetteController {
 	private final RecetteService recetteService;
 	
@@ -45,8 +45,8 @@ public class RecetteController {
 		recetteService.deleteById(id);
 	}
 	
-	@PutMapping
-	public void update(@RequestBody Recette recette) {
-		recetteService.update(recette);
+	@PutMapping("/{id}")
+	public Recette update(@PathVariable int id , @RequestBody Recette recette) {
+		return this.recetteService.update(id,recette);
 	}
 }

@@ -1,6 +1,7 @@
 package com.projet_recette.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -39,9 +40,18 @@ public class RecetteService {
 		recetteRepository.deleteById(id);
 	}
 	
-	public void update(Recette recette) {
-		 deleteById(recette.getIdRecette());
-		 recetteRepository.save(recette);
+	public Recette update( int id,Recette recette) {
+		 Recette recetteFromDB= this.findById(id);
+		 
+		 recetteFromDB.setNomRecette(recette.getNomRecette());
+		 recetteFromDB.setTempsPreparation(recette.getTempsPreparation());
+		 recetteFromDB.setTempsCuisson(recette.getTempsCuisson());
+		 recetteFromDB.setTempsRepos(recette.getTempsRepos());
+		 recetteFromDB.setNbPersonnes(recette.getNbPersonnes());
+		 recetteFromDB.setConsignes(recette.getConsignes());
+		 recetteFromDB.setLastUpdate(recette.getLastUpdate());
+		
+		 return recetteRepository.save(recetteFromDB);
 	}
 	
 	public Recette findOrInsertRecette(Recette recette) {

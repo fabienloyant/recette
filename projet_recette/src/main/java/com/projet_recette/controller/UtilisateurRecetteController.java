@@ -16,7 +16,7 @@ import com.projet_recette.entities.UtilisateurRecette;
 import com.projet_recette.service.UtilisateurRecetteService;
 
 @RestController
-@RequestMapping("userrecip")
+@RequestMapping("/utilisateurRecette")
 @CrossOrigin
 public class UtilisateurRecetteController {
 	

@@ -43,9 +43,9 @@ public class UtilisateurController {
 		return utilisateurService.save(utilisateur);
 	}
 	
-	@PutMapping
-	public void update(@RequestBody Utilisateur utilisateur) {
-		utilisateurService.update(utilisateur);
+	@PutMapping("/{id}")
+	public void update(@PathVariable int id,@RequestBody Utilisateur utilisateur) {
+		utilisateurService.update(id,utilisateur);
 	}
 	
 	@DeleteMapping("/{id}")

@@ -60,10 +60,15 @@ public class UtilisateurService {
 //		return findById(id);
 //	}
 
-	public Utilisateur update(Utilisateur utilisateur) {
-		deleteById(utilisateur.getId());
-		utilisateurRepository.save(utilisateur);
-		return utilisateur;
+	public Utilisateur update(int id ,Utilisateur utilisateur) {
+		
+		Utilisateur utilisateurFromDB = this.findById(id);
+		utilisateurFromDB.setPrenom(utilisateur.getPrenom());
+		utilisateurFromDB.setNom(utilisateur.getNom());
+		utilisateurFromDB.setLogin(utilisateur.getLogin());
+		utilisateurFromDB.setDateDeNaissance(utilisateur.getDateDeNaissance());
+		
+		return utilisateurRepository.save(utilisateurFromDB);
 	}
 	
 	public void deleteById(int id) {
