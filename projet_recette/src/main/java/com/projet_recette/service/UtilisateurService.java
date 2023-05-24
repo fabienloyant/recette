@@ -1,7 +1,8 @@
 package com.projet_recette.service;
 
 import java.util.List;
-
+import java.util.Objects;
+import java.util.stream.Stream;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -64,10 +65,17 @@ public class UtilisateurService {
 		UtilisateurCompletDto utilisateurComplet = objectMapper.convertValue(utilisateur, UtilisateurCompletDto.class);
 		List<UtilisateurIngredient> utilisateurIngredientList = utilisateurIngredientService.findByUtilisateurId(id);
 		List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> objectMapper.convertValue(utilisateurIngredient.getIngredient(), IngredientReduitDto.class)).toList();
+		
+		//ingredientReduitList.forEach(ingredient -> utilisateurIngredientList.stream().filter(ingredient.getId() -> Objects.equals() ));
+		
+//		ingredientReduitList.forEach(ingredient -> ingredient.setQuantite(
+//				return utilisateurIngredientList.forEach(ing -> ing.getQuantite())));	
+		
 		utilisateurComplet.setIngredients(ingredientReduitList);
 		
 		return utilisateurComplet;
 	}
+	
 	
 	public Utilisateur save(Utilisateur utilisateur) {
 		utilisateurRepository.save(utilisateur);
