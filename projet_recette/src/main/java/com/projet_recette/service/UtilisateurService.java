@@ -7,9 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.projet_recette.dto.ingredient.IngredientReduitDto;
+import com.projet_recette.dto.utilisateur.UtilisateurCompletDto;
 import com.projet_recette.entities.Ingredient;
 import com.projet_recette.entities.Recette;
 import com.projet_recette.entities.Utilisateur;
+import com.projet_recette.entities.UtilisateurIngredient;
 import com.projet_recette.repository.IngredientRepository;
 import com.projet_recette.repository.UtilisateurRepository;
 
@@ -22,11 +26,15 @@ public class UtilisateurService {
 	private final UtilisateurRepository utilisateurRepository;
 	private final IngredientService ingredientService;
 	private final RecetteService recetteService;
+	private final UtilisateurIngredientService utilisateurIngredientService;
+	private final ObjectMapper objectMapper;
 	
-	public UtilisateurService(UtilisateurRepository utilisateurRepository, IngredientService ingredientService, RecetteService recetteService) {
+	public UtilisateurService(UtilisateurRepository utilisateurRepository, IngredientService ingredientService, RecetteService recetteService, UtilisateurIngredientService utilisateurIngredientService) {
 		this.utilisateurRepository = utilisateurRepository;
 		this.ingredientService = ingredientService;
 		this.recetteService = recetteService;
+		this.utilisateurIngredientService = utilisateurIngredientService;
+		this.objectMapper = new ObjectMapper();
 	}
 	
 	public List<Utilisateur> findAll() {
@@ -35,6 +43,15 @@ public class UtilisateurService {
 	
 	public Utilisateur findById(int id) {
 		return utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+	}
+	
+	public UtilisateurCompletDto findByIdWithIngredients(int id) {
+		Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+		UtilisateurCompletDto utilisateurComplet = objectMapper.convertValue(utilisateur, UtilisateurCompletDto.class);
+		List<UtilisateurIngredient> utilisateurIngredientList = utilisateurIngredientService.findByUtilisateurId(id);
+		List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> objectMapper.convertValue(utilisateurIngredient, IngredientReduitDto.class)).toList();
+		utilisateurComplet.setIngredients(ingredientReduitList);
+		return utilisateurComplet;
 	}
 	
 	public Utilisateur save(Utilisateur utilisateur) {
