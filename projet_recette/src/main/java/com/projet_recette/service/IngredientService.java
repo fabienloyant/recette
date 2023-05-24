@@ -51,6 +51,10 @@ public class IngredientService {
 	//update
 	public Ingredient update( int id,Ingredient ingredient) {
 		Ingredient ingredientFromDB = this.findById(id);
+		
+		ingredientFromDB.setNom(ingredient.getNom());
+		ingredientFromDB.setUnite(ingredient.getUnite());
+		ingredientFromDB.setTypeIngredient(ingredient.getTypeIngredient());
 
 		
 		return ingredientRepository.save(ingredientFromDB);

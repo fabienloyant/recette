@@ -15,7 +15,7 @@ public class UtilisateurCompletDto {
 	private int id;
 	private String prenom;
 	private String nom;
-	private Timestamp dateDeNaissance;
+	private LocalDate dateDeNaissance;
 	private String login;
 	private String mdp;
 	private LocalDate dateAjout;
