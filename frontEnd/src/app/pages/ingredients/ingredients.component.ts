@@ -7,30 +7,28 @@ import { IngredientService } from 'src/app/services/ingredient.service';
   templateUrl: './ingredients.component.html',
   styleUrls: ['./ingredients.component.css']
 })
-export class IngredientsComponent {
+export class IngredientsComponent implements OnInit {
 
   ingredients: IngredientInterface[] =[]
 
   //injection du service
-  //constructor(private service: IngredientService) {}
+  constructor(private service: IngredientService) {}
 
-  //  ngOnInit() {
-  //    this.getIngredient()
-  //  }
-
-
-  // addIngredient = (data: IngredientInterface) => {
-  //   this.service.addIngredient(data).subscribe(
-  //     {
-  //       next: (data: IngredientInterface) => {
-  //         this.ingredients.push(data)
-  //       },
-  //       error: (err) => {
-  //         console.error(err);
-  //       }
-  //     })
-  // }
+    ngOnInit() {
+      this.service.getIngredients()
+    }
 
 
+   addIngredient = (data: IngredientInterface) => {
+     this.service.addIngredient(data).subscribe(
+       {
+         next: (data: IngredientInterface) => {
+           this.ingredients.push(data)
+         },
+         error: (err) => {
+           console.error(err);
+         }
+       })
+   }
 
 }

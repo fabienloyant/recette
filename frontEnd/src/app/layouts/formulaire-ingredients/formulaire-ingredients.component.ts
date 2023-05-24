@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TYPE_INGREDIENT } from 'src/app/constants/typeIngredient';
-import { IngredientInterface, IngredientModel, TypeIngredient } from 'src/app/models/IngredientModel';
+import { IngredientInterface, IngredientModel, TypeIngredient, Unite } from 'src/app/models/IngredientModel';
 import { IngredientService } from 'src/app/services/ingredient.service';
 
 @Component({
@@ -11,12 +11,37 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 })
 export class FormulaireIngredientsComponent implements OnInit {
 
-  @Output()
-  data: EventEmitter<IngredientInterface> = new EventEmitter();
+   @Output()
+   data: EventEmitter<IngredientInterface> = new EventEmitter();
 
+  //pour quand j'aurais les vraies données 
   public listIngredients: IngredientModel [] = []
 
   public types = TYPE_INGREDIENT;
+
+   ingredients: IngredientModel[] = [
+    {
+      id: 1,
+      nom: "carotte",
+      unite: Unite.g,
+      typeIngredient: TypeIngredient.legume
+    },
+    {
+      id: 2,
+      nom: "salade",
+      unite: Unite.ingredient,
+      typeIngredient: TypeIngredient.legume
+    },
+    {
+      id: 3,
+      nom: "fraise",
+      unite: Unite.g,
+      typeIngredient: TypeIngredient.fruit
+    }
+  ]
+
+   selectedType: string | undefined;
+   filteredIngredients: IngredientModel[] | undefined;
 
 
   //boolean qui vérifie si le formulaire est soumis
@@ -37,6 +62,11 @@ export class FormulaireIngredientsComponent implements OnInit {
     this.listIngredients = this.service.getIngredients()
     console.log(this.listIngredients);
     
+  }
+
+  //méthode change qui change les ingrédients quand on chnage le type 
+  onTypeIngredientChange() {
+    this.filteredIngredients = this.ingredients.filter(ingredient => ingredient.typeIngredient === this.selectedType)
   }
 
   //méthode qui se lance à la soumission du formulaire

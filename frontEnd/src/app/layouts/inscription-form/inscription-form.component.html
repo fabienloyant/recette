@@ -3,7 +3,7 @@
         <h1> Inscription </h1>
     </div>
 
-    <form class="form"> 
+    <form [formGroup]="utilisateurForm" (ngSubmit)="onSubmit()" class="form"> 
         <div id="champ">
             <div class="mb-3">
                 <label for="prenom" class="form-label"> Prénom </label>
@@ -37,9 +37,9 @@
         </div>
         
             <div id="boutons">
-                <button type="button" class="btn btn-primary"> S'inscrire </button>
+                <button type="submit" class="btn btn-primary"> S'inscrire </button>
                 <br>
-                <button type="button" class="btn btn-danger"> Annuler </button>
+                <button type="button" class="btn btn-danger" href=""> Annuler </button>
             </div>
     </form>
 </div>
