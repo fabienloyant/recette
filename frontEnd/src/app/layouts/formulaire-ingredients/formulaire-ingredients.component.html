@@ -2,14 +2,12 @@
 <div class="body">
     <div id = "titre"> Veuillez insérer vos ingrédients </div>    
     <div>
-        <form class="form" id="formIngredient">
+        <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()" class="form" id="formIngredient">
             <div class="menu1">
-            <label for="type d'ingredient">Type d'ingredient </label>
-            <select class="form-select" aria-label="Default select example">
+            <label for="typeIngredient" class="form-label"> Type d'ingrédient </label>
+            <select  formControlName="types" class="form-select" id="typeIngredient" aria-label="typeIngredient">
                 <option selected>Choisir le type d'ingrédients</option>
-                <option value="1">Fruit</option>
-                <option value="2">Légumes</option>
-                <option value="3">Viandes</option>
+                <option *ngFor="let item of types" [value]="item.key"> {{ item.value }} </option>
             </select>
             </div>
 
@@ -18,9 +16,7 @@
                 <label for="ingredient"> Ingredients </label>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Choisissez vos ingrédients</option>
-                    <option value="1"> Carottes </option>
-                    <option value="1"> Haché de boeuf </option>
-                    <option value="1"> Flageolet </option>
+                    <option  value="1"> Carottes </option>
                 </select>
 
             </div>

@@ -11,13 +11,13 @@ import { GestionCompteComponent } from './pages/gestion-compte/gestion-compte.co
 import { ModifierMdpComponent } from './pages/modifier-mdp/modifier-mdp.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
   {path: 'ingredient', component: IngredientsComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'recette', component: RecettesComponent},
   {path: 'modifieringredient', component: ModifierIngredientComponent},
   {path: 'gestioncompte', component: GestionCompteComponent},
-  {path: 'modifiermdp', component: ModifierMdpComponent}
+  {path: 'modifiermdp', component: ModifierMdpComponent},
+  {path: '', component: HomeComponent}
 ];
 
 @NgModule({
