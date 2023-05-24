@@ -65,8 +65,8 @@ public class IngredientController {
 	 * 	PUT
 	 *************************************/
 	@PutMapping
-	public void update(@RequestBody Ingredient ingredient) {
-		ingredientService.update(ingredient);
+	public Ingredient update(@PathVariable int  id, @RequestBody Ingredient ingredient) {
+		return this.ingredientService.update(id,ingredient);
 	}
 	
 	

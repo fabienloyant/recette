@@ -49,9 +49,11 @@ public class IngredientService {
 	
 
 	//update
-	public void update(Ingredient ingredient) {
-		deleteById(ingredient.getId());
-		ingredientRepository.save(ingredient);
+	public Ingredient update( int id,Ingredient ingredient) {
+		Ingredient ingredientFromDB = this.findById(id);
+
+		
+		return ingredientRepository.save(ingredientFromDB);
 	}
 	
 	
