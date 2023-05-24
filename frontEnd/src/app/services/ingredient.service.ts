@@ -39,6 +39,10 @@ export class IngredientService {
     return this.ingredientMock
   }
 
+  getIngredientsByType = () => {
+   
+  }
+
 
   //méthode ajout ingredient
   addIngredient = (data: IngredientInterface): Observable<IngredientInterface> => {

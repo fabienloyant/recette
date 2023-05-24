@@ -16,9 +16,7 @@
                 <label for="ingredient"> Ingredients </label>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Choisissez vos ingrédients</option>
-                    <option value="1"> Carottes </option>
-                    <option value="1"> Haché de boeuf </option>
-                    <option value="1"> Flageolet </option>
+                    <option *ngIf="ingredientForm.typeIngredient == " value="1"> Carottes </option>
                 </select>
 
             </div>
