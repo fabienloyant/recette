@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projet_recette.entities.Ingredient;
 import com.projet_recette.entities.UtilisateurIngredient;
 import com.projet_recette.service.UtilisateurIngredientService;
 
@@ -36,6 +37,10 @@ public class UtilisateurIngredientController {
 	@GetMapping("/{id}")
 	public UtilisateurIngredient findById(@PathVariable int id) {
 		return utilisateurIngredientService.findById(id);
+	}
+	@GetMapping("/utilisateur/{id}")
+	public List<UtilisateurIngredient> findByUtilisateurId(@PathVariable int id) {
+		return utilisateurIngredientService.findByUtilisateurId(id);
 	}
 	
 	@PostMapping

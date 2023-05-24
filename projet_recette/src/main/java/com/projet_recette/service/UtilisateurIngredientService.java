@@ -31,6 +31,10 @@ public class UtilisateurIngredientService {
 		return utilisateurIngredientRepository.findAll();
 	}
 	
+	public List<UtilisateurIngredient> findByUtilisateurId(int id) {
+		return utilisateurIngredientRepository.findByUtilisateurId(id);
+	}
+	
 	public UtilisateurIngredient findById(int id) {
 		return utilisateurIngredientRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 	}
