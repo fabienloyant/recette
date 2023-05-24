@@ -24,6 +24,8 @@ import { ModifierIngredientComponent } from './pages/modifier-ingredient/modifie
 import { GestionCompteComponent } from './pages/gestion-compte/gestion-compte.component';
 import { ModifierMdpComponent } from './pages/modifier-mdp/modifier-mdp.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,10 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
