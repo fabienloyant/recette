@@ -8,6 +8,6 @@ import com.projet_recette.entities.UtilisateurRecette;
 
 public interface UtilisateurRecetteRepository extends JpaRepository<UtilisateurRecette, Integer> {
 	
-	public List<UtilisateurRecette> findByUtilisateur(int id);
+	public List<UtilisateurRecette> findByUtilisateurId(int id);
 
 }

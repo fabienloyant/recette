@@ -57,20 +57,7 @@ public class Recette {
 	@Temporal(TemporalType.DATE)
 	private LocalDate lastUpdate = LocalDate.now();
 
-	
-	public Recette(Integer idRecette, String nomRecette, int tempsPreparation, int tempsCuisson, int tempsRepos,
-			int nbPersonnes, String consignes, LocalDate dateAjout, LocalDate lastUpdate) {
-		this.idRecette = idRecette;
-		this.nomRecette = nomRecette;
-		this.tempsPreparation = tempsPreparation;
-		this.tempsCuisson = tempsCuisson;
-		this.tempsRepos = tempsRepos;
-		this.nbPersonnes = nbPersonnes;
-		this.consignes = consignes;
-		this.dateAjout = dateAjout;
-		this.lastUpdate = lastUpdate;
-	}
-	
+
 	
 
 	

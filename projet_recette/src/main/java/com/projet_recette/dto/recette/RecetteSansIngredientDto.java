@@ -18,7 +18,6 @@ public class RecetteSansIngredientDto {
 	private String consignes;
 	private LocalDate dateAjout;
 	private LocalDate lastUpdate;
-	private double quantite;
 	
 	private List<UtilisateurSansRecetteDto> utilisateur;
 }

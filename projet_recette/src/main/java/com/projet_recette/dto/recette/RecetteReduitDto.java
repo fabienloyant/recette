@@ -11,13 +11,12 @@ public class RecetteReduitDto {
 	private String Nom;
 	private int nbPersonnes;
 	
-	private double quantite;
-//	private String consignes;
-//	private LocalDate dateAjout;
-//	private LocalDate lastUpdate;
-//	private int tempsPreparation;
-//	private int tempsCuisson;
-//	private int TempsRepos;
+	private String consignes;
+	private LocalDate dateAjout;
+	private LocalDate lastUpdate;
+	private int tempsPreparation;
+	private int tempsCuisson;
+	private int TempsRepos;
 	
 	
 	

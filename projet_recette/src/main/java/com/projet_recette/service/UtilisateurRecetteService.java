@@ -29,7 +29,7 @@ public class UtilisateurRecetteService {
 	}
 	
 	public List<UtilisateurRecette> findByUtilisateur(int id) {
-		return utilisateurRecetteRepository.findByUtilisateur(id);
+		return utilisateurRecetteRepository.findByUtilisateurId(id);
 	}
 	
 	public UtilisateurRecette save(UtilisateurRecette utilisateurRecette) {

@@ -67,30 +67,25 @@ public class UtilisateurService {
 	}
 	
 	public UtilisateurCompletDto findByIdWithIngredients(int id) {
-		
 		Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
-		
-		
 		UtilisateurCompletDto utilisateurComplet = objectMapper.convertValue(utilisateur, UtilisateurCompletDto.class);
 		
 		List<UtilisateurIngredient> utilisateurIngredientList = utilisateurIngredientService.findByUtilisateurId(id);
-		
 		List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> toDto(utilisateurIngredient)).toList();
+		utilisateurComplet.setIngredients(ingredientReduitList);
 		
 		List <UtilisateurRecette> utilisateurRecetteList = utilisateurRecetteService.findByUtilisateur(id);
 		List<RecetteReduitDto> recetteReduitList = utilisateurRecetteList.stream().map(utilisateurRecette -> toDtoRecette(utilisateurRecette)).toList();		
-		
-		
-		
-		/*List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> objectMapper.convertValue(utilisateurIngredient.getIngredient(), IngredientReduitDto.class)).toList();
-		
-		ingredientReduitList.forEach(ingredient -> utilisateurIngredientList.stream().filter(ingredient.getId() -> Objects.equals() ));
-		
-		ingredientReduitList.forEach(ingredient -> ingredient.setQuantite(
-				return utilisateurIngredientList.forEach(ing -> ing.getQuantite())));*/
-		
-		utilisateurComplet.setIngredients(ingredientReduitList);
 		utilisateurComplet.setRecettes(recetteReduitList);
+		
+		
+		/*Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
+        UtilisateurCompletDto utilisateurComplet = objectMapper.convertValue(utilisateur, UtilisateurCompletDto.class);
+        List<UtilisateurIngredient> utilisateurIngredientList = utilisateurIngredientService.findByUtilisateurId(id);
+        List<IngredientReduitDto> ingredientReduitList = utilisateurIngredientList.stream().map(utilisateurIngredient -> objectMapper.convertValue(utilisateurIngredient.getIngredient(), IngredientReduitDto.class)).toList();
+        ingredientReduitList.forEach(ingredient -> ingredient.getQuantite());
+        utilisateurComplet.setIngredients(ingredientReduitList);
+        */
 		
 		return utilisateurComplet;
 	}
@@ -99,7 +94,6 @@ public class UtilisateurService {
 	 * Méthode pour mettre les valeurs des attributs à partir de la table utilisateuringredient de utilisateurComplet
 	 */
 	public IngredientReduitDto toDto(UtilisateurIngredient user) {
-		log.info("valeur:" + user);
 		IngredientReduitDto reduit = new IngredientReduitDto();
 		reduit.setId(user.getIngredient().getId());
 		reduit.setNom(user.getIngredient().getNom());
@@ -114,12 +108,17 @@ public class UtilisateurService {
 	 * Méthode pour attribuer les valeurs des attribut de utilisateur ingredient dans untilisateur complet
 	 */
 	public RecetteReduitDto toDtoRecette(UtilisateurRecette data) {
-		log.info("valeur:" + data);
 		RecetteReduitDto reduit = new RecetteReduitDto();
 		
 		reduit.setIdRecette(data.getRecette().getIdRecette());
 		reduit.setNom(data.getRecette().getNomRecette());
 		reduit.setNbPersonnes(data.getRecette().getNbPersonnes());
+		reduit.setConsignes(data.getRecette().getConsignes());
+		reduit.setTempsPreparation(data.getRecette().getTempsPreparation());
+		reduit.setTempsCuisson(data.getRecette().getTempsCuisson());
+		reduit.setTempsRepos(data.getRecette().getTempsRepos());
+		reduit.setDateAjout(data.getRecette().getDateAjout());
+		reduit.setLastUpdate(data.getRecette().getLastUpdate());
 		
 		return reduit;
 	}

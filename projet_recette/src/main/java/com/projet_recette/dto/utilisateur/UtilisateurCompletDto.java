@@ -20,6 +20,7 @@ public class UtilisateurCompletDto {
 	private String mdp;
 	private LocalDate dateAjout;
 	private LocalDate lastUpdate;
+	
 	private List <IngredientReduitDto> ingredients;
 	private List <RecetteReduitDto> recettes;
 	
