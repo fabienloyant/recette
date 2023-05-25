@@ -15,7 +15,7 @@ export class FormulaireIngredientsComponent implements OnInit {
   
   unite : Unite[]= [Unite.INGREDIENT, Unite.G, Unite.ML]
 
-   typeIngredient: TypeIngredient[] = [TypeIngredient.LEGUME, TypeIngredient.LEGUMINEUSE, TypeIngredient.BOISSON,
+  typeIngredient: TypeIngredient[] = [TypeIngredient.LEGUME, TypeIngredient.LEGUMINEUSE, TypeIngredient.BOISSON,
     TypeIngredient.VIANDE, TypeIngredient.EPICE, TypeIngredient.FECULENT, TypeIngredient.LAITAGE, TypeIngredient.POISSON,
   TypeIngredient.FRUIT ]
 

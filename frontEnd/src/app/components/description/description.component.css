@@ -2,6 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background: linear-gradient( red, orange, yellow, green, blue, indigo, violet);
     height: 50vh;
+}
+
+#text {
+    font-size:  25px;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+
 }
