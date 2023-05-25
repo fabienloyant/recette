@@ -56,7 +56,8 @@ public class Recette {
 	@Column(name ="date_mis_a_jour")
 	@Temporal(TemporalType.DATE)
 	private LocalDate lastUpdate = LocalDate.now();
-	
+
+
 	
 
 	

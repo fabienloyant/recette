@@ -19,5 +19,6 @@ public class RecetteSansUtilisateurDto {
 	private LocalDate dateAjout;
 	private LocalDate lastUpdate;
 	
+	
 	private List<IngredientSansRecetteDto> ingredient;
 }

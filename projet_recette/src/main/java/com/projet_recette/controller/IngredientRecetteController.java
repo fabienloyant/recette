@@ -56,9 +56,9 @@ public class IngredientRecetteController {
 	/************************************
 	 * 	PUT
 	 *************************************/
-	@PutMapping
-	public void update(@RequestBody IngredientRecette ingredientRecette) {
-		ingredientRecetteService.update(ingredientRecette);
+	@PutMapping("{id}")
+	public IngredientRecette update(@PathVariable int id, @RequestBody IngredientRecette ingredientRecette) {
+		return ingredientRecetteService.update(id,ingredientRecette);
 	}
 	
 	

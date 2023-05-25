@@ -29,6 +29,10 @@ public class IngredientRecetteService {
 		return ingredientRecetteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ingredient-Recette non trouvé")); //renvoie un message personnalisé de l'erreur
 	}
 	
+	public List<IngredientRecette> findByIngredientId(int id){
+		return ingredientRecetteRepository.findByIngredientId(id);
+	}
+	
 	//save = create
 	public IngredientRecette save(IngredientRecette ingredientRecette) {
 		ingredientRecetteRepository.save(ingredientRecette);
@@ -41,9 +45,14 @@ public class IngredientRecetteService {
 	}
 	
 	//update
-	public void update(IngredientRecette ingredientRecette) {
-		deleteById(ingredientRecette.getId());
-		ingredientRecetteRepository.save(ingredientRecette);
+	public IngredientRecette update ( int id ,IngredientRecette ingredientRecette) {
+		IngredientRecette irFromDB = this.findById(id);
+		
+		irFromDB.setIngredient(ingredientRecette.getIngredient());
+		irFromDB.setRecette(ingredientRecette.getRecette());
+		irFromDB.setQuantite(ingredientRecette.getQuantite());
+		
+		return ingredientRecetteRepository.save(irFromDB);
 	}
 	
 }

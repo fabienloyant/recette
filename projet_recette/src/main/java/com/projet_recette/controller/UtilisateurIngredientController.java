@@ -48,9 +48,9 @@ public class UtilisateurIngredientController {
 		return utilisateurIngredientService.save(utilisateurIngredient);
 	}
 	
-	@PutMapping
-	public void update(@RequestBody UtilisateurIngredient utilisateurIngredient) {
-		utilisateurIngredientService.update(utilisateurIngredient);
+	@PutMapping("{id}")
+	public UtilisateurIngredient update(@PathVariable int id,  @RequestBody UtilisateurIngredient utilisateurIngredient) {
+		return utilisateurIngredientService.update(id,utilisateurIngredient);
 	}
 	
 	@DeleteMapping("/{id}")
