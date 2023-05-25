@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { UtilisateurInterface, UtilisateurModel } from './models/UtilisateurModel';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontEnd';
+
+  utilisateur: UtilisateurInterface = new UtilisateurModel;
+
+  @Output()
+  userConnected: boolean = false;
+
 }

@@ -20,6 +20,10 @@ export class UtilisateurService {
     return this.http.get<UtilisateurInterface>(`${this.URI}/${id}`)
   }
 
+  login = (data: UtilisateurInterface): Observable<UtilisateurInterface> => {
+    return this.http.post<UtilisateurInterface>(`${this.URI}/login`, data)
+  }
+
   addUtilisateur = (data: UtilisateurInterface): Observable<UtilisateurInterface> => {
     return this.http.post<UtilisateurInterface>(`${this.URI}`, data)
   }
