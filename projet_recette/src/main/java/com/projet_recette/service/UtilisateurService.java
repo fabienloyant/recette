@@ -66,6 +66,17 @@ public class UtilisateurService {
 		return utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 	}
 	
+	public Utilisateur  findByLogin(Utilisateur user) {
+		Utilisateur utilisateur = utilisateurRepository.findByLogin(user.getLogin()); // user bdd
+		
+		if(user != null && utilisateur.getMdp().equals(user.getMdp())) {
+			return utilisateur; 
+		}
+		else {
+			return null;
+		}
+	}
+	
 	public UtilisateurCompletDto findByIdWithIngredients(int id) {
 		Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 		UtilisateurCompletDto utilisateurComplet = objectMapper.convertValue(utilisateur, UtilisateurCompletDto.class);

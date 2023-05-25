@@ -36,6 +36,8 @@ public class UtilisateurRecetteController {
 		return utilisateurRecetteService.findById(id);
 		
 	}
+	
+	//post
 	@PostMapping
 	public UtilisateurRecette save(@RequestBody UtilisateurRecette utilisateurRecette) {
 		return utilisateurRecetteService.save(utilisateurRecette);
