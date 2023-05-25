@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientInterface, TypeIngredient } from 'src/app/models/IngredientModel';
+import { UtilisateurIngredient } from 'src/app/models/UtilisateurIngredient';
+import { UtilisateurInterface } from 'src/app/models/UtilisateurModel';
 import { IngredientService } from 'src/app/services/ingredient.service';
 
 @Component({
@@ -10,6 +12,12 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 export class IngredientsComponent implements OnInit {
 
   ingredients: IngredientInterface[] = []
+
+  utilisateur: UtilisateurInterface[] = []
+
+  utilisateringredient: UtilisateurIngredient[] = []
+
+  
 
  
 
@@ -62,6 +70,18 @@ export class IngredientsComponent implements OnInit {
       }
     })
    }
+
+  //  listIngredientparUtilisateur = (id:number) =>{
+  //   const user = this.utilisateur.find(item => item.id == id)
+  //   if (user) {
+     
+  //       }
+  //     })
+  //   }
+  //  }
+
+   
+}
    
 
-}
+
