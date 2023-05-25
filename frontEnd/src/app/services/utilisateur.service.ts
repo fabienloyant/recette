@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UtilisateurInterface } from '../models/UtilisateurModel';
+import { UtilisateurInterface, UtilisateurModel } from '../models/UtilisateurModel';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilisateurService {
+
+  // isLoggedIn: boolean = false;
+  // utilisateur: UtilisateurInterface = new UtilisateurModel();
 
   private URI = 'http://localhost:8080/utilisateur'
 
@@ -22,6 +25,16 @@ export class UtilisateurService {
 
   login = (data: UtilisateurInterface): Observable<UtilisateurInterface> => {
     return this.http.post<UtilisateurInterface>(`${this.URI}/login`, data)
+  }
+
+  connecterUtilisateur = (data: UtilisateurModel) => {
+    localStorage.setItem('isLoggedIn', "true");
+    localStorage.setItem('utilisateur', JSON.stringify(data));
+  }
+
+  deconnecterUtilisateur = () => {
+    localStorage.setItem('isLoggedIn', "false");
+    localStorage.setItem('utilisateur', JSON.stringify(new UtilisateurModel()));
   }
 
   addUtilisateur = (data: UtilisateurInterface): Observable<UtilisateurInterface> => {
