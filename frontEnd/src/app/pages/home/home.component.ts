@@ -7,17 +7,14 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   utilisateurs: UtilisateurInterface[] = []
   
 
   constructor(private service: UtilisateurService) {}
 
-  ngOnInit = () => {
-    if()
-
-  }
+  
 
 
   login = (data: UtilisateurInterface) => {
