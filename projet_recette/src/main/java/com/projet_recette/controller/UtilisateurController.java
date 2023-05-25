@@ -39,6 +39,11 @@ public class UtilisateurController {
 		return utilisateurService.findById(id);
 	}
 	
+	@PostMapping("/login")
+	public Utilisateur Login (@RequestBody Utilisateur utilisateur) {
+		return utilisateurService.findByLogin(utilisateur);
+	}
+	
 	@GetMapping("{id}/withingredients")
 	public UtilisateurCompletDto findByIdWithIngredients(@PathVariable int id) {
 		return utilisateurService.findByIdWithIngredients(id);

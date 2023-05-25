@@ -6,5 +6,5 @@ import com.projet_recette.entities.Utilisateur;
 
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
 	
-	//Utilisateur findByLogin(String login);
+	Utilisateur findByLogin(String login);
 }

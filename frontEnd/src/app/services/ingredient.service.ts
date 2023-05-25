@@ -11,6 +11,7 @@ export class IngredientService {
 
   private URI = 'http://localhost:8080/ingredient'
 
+
   constructor(private http: HttpClient) { }
 
 
@@ -22,10 +23,14 @@ export class IngredientService {
     return this.http.get<IngredientInterface>(`${this.URI}/${id}`)
   }
 
+  getIngredientByUtilisateurId =(id: number): Observable<IngredientInterface> =>{
+    return this.http.get<IngredientInterface>(`${this.URI}/${id}`)
+  }
+
   // //méthode pour faire un filtre (afficher les ingredients que quand type ingredient est legume ) MAIS ne marche pas 
   // getIngredientByType = (): Observable<void> => {
-  //   const ingredients = this.http.get<IngredientInterface[]>(`${this.URI}`)
-  //   const result = ingredients.filter(ingredient => TypeIngredient.legume);
+  //   const ingredients = await this.http.get<IngredientInterface[]>(`${this.URI}`)
+  //   const result = ingredients.filter(ingredient => ingredient.type = TypeIngredient.legume);
   //   console.log(result);
   // }
 
