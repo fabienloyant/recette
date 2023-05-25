@@ -7,22 +7,22 @@ interface IngredientInterface {
 }
 
 enum Unite {
-    INGREDIENT ="Ingrédient",
-    ML = "Millilitre",
-    G ="Gramme",
+    INGREDIENT = "INGREDIENT",
+    ML = "ML" ,
+    G  = "G",
 }
 
 enum TypeIngredient {
 
-    LEGUME ="Légume", 
-    FRUIT ="Fruit",
-    FECULENT = "Féculent",
-    LEGUMINEUSE="Légumineuse",
-    VIANDE = "Viande",
-    POISSON = "Poisson",
-    LAITAGE = "Laitage",
-    EPICE = "Epice",
-    BOISSON = "Boisson",
+    LEGUME = "LEGUME", 
+    FRUIT = "FRUIT",
+    FECULENT = "FECULENT",
+    LEGUMINEUSE = "LEGUMINEUSE",
+    VIANDE = "VIANDE",
+    POISSON = "POISSON",
+    LAITAGE = "LAITAGE",
+    EPICE = " EPICE",
+    BOISSON = "BOISSON",
 }
 
 class IngredientModel implements IngredientInterface {

@@ -1,5 +1,9 @@
 package com.projet_recette.entities;
 
+import org.apache.commons.lang3.EnumUtils;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import lombok.Getter;
 
 @Getter
@@ -15,5 +19,7 @@ public enum TypeIngredient {
 	private TypeIngredient(String libelle) {
 		this.libelle = libelle;
 	}
+	
+	
 
 }
