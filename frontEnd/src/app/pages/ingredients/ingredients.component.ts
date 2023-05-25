@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IngredientInterface } from 'src/app/models/IngredientModel';
+import { IngredientInterface, TypeIngredient } from 'src/app/models/IngredientModel';
 import { IngredientService } from 'src/app/services/ingredient.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 export class IngredientsComponent implements OnInit {
 
   ingredients: IngredientInterface[] = []
+
+ 
 
   //injection du service
   constructor(private service: IngredientService) {}
@@ -32,6 +34,8 @@ export class IngredientsComponent implements OnInit {
           }
         })
     }
+
+    
 
    addIngredient = (data: IngredientInterface) => {
      this.service.addIngredient(data).subscribe(

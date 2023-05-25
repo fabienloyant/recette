@@ -24,15 +24,15 @@ export class IngredientService {
   }
 
   getIngredientByUtilisateurId =(id: number): Observable<IngredientInterface> =>{
-    return this.http.get<IngredientInterface>(`${this.URI}/${id}`)
+    return this.http.get<IngredientInterface>(`${this.URI}/${id}/withingredients`)
   }
 
   // //méthode pour faire un filtre (afficher les ingredients que quand type ingredient est legume ) MAIS ne marche pas 
-  // getIngredientByType = (): Observable<void> => {
-  //   const ingredients = await this.http.get<IngredientInterface[]>(`${this.URI}`)
-  //   const result = ingredients.filter(ingredient => ingredient.type = TypeIngredient.legume);
-  //   console.log(result);
-  // }
+  //  getIngredientByType = (): Observable<void> => {
+  //    const ingredients =  this.http.get<IngredientInterface[]>(`${this.URI}`)
+  //    const result = ingredients.filter(ingredient => ingredient.type = TypeIngredient.legume);
+  //    console.log(result);
+  //  }
 
   //méthode ajout ingredient
   addIngredient = (data: IngredientInterface): Observable<IngredientInterface> => {
