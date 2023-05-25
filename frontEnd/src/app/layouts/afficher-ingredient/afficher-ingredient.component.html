@@ -11,10 +11,10 @@
             <th scope="col"> Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let item of data">
           <tr>
-            <td> Courgette </td>
-            <td> 1000 g  </td>
+            <td> {{ item.nom }} </td>
+            <td> Quantité </td>
             <td> 
                 <button class="btn btn-warning" routerLink="modifieringredient"> modifier </button>
                 <button class="btn btn-danger"> supprimer </button>

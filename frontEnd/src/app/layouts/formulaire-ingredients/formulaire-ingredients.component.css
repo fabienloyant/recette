@@ -6,6 +6,7 @@
 #titre{
     display: flex;
     justify-content: center;
+    align-content: center;
     text-decoration: underline black;
     font-family: "Fira Sans", Arial, sans-serif;
     font-size: 26px;
@@ -16,4 +17,5 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
 
