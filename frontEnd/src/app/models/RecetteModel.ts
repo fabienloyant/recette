@@ -1,42 +1,42 @@
 interface RecetteInterface {
-    id: number,
-    nom: string,
+    idRecette: number,
+    nomRecette: string,
     tempsPreparation: number,
     tempsCuisson: number,
     tempsRepos: number,
-    nombrePersonnes: number,
+    nbPersonnes: number,
     consignes: string,
     dateAjout: Date,
     lastUpdate: Date
 }
 
 class RecetteModel implements RecetteInterface {
-    id!: number;
-    nom!: string;
+    idRecette!: number;
+    nomRecette!: string;
     tempsPreparation!: number;
     tempsCuisson!: number;
     tempsRepos!: number;
-    nombrePersonnes!: number;
+    nbPersonnes!: number;
     consignes!: string;
     dateAjout!: Date;
     lastUpdate!: Date;
 
     constructor(
-        id?: number,
-        nom?: string,
+        idRecette?: number,
+        nomRecette?: string,
         tempsPreparation?: number,
         tempsCuisson?: number,
         tempsRepos?: number,
-        nombrePersonnes?: number,
+        nbPersonnes?: number,
         consignes?: string,
         dateAjout?: Date,
         lastUpdate?: Date) {
-            if (id) this.id = id;
-            if (nom) this.nom = nom;
+            if (idRecette) this.idRecette = idRecette;
+            if (nomRecette) this.nomRecette = nomRecette;
             if (tempsPreparation) this.tempsPreparation = tempsPreparation;
             if (tempsCuisson) this.tempsCuisson = tempsCuisson;
             if (tempsRepos) this.tempsRepos = tempsRepos;
-            if (nombrePersonnes) this.nombrePersonnes = nombrePersonnes;
+            if (nbPersonnes) this.nbPersonnes = nbPersonnes;
             if (consignes) this.consignes = consignes;
             if (dateAjout) this.dateAjout = dateAjout;
             if (lastUpdate) this.lastUpdate = lastUpdate;
@@ -44,12 +44,12 @@ class RecetteModel implements RecetteInterface {
 
     toString = () => {
         return (`
-            id : ${this.id},
-            name : ${this.nom},
+            id : ${this.idRecette},
+            name : ${this.nomRecette},
             tempsPreparation : ${this.tempsPreparation},
             tempsCuisson : ${this.tempsCuisson},
             tempsRepos : ${this.tempsRepos},
-            nombrePersonnes : ${this.nombrePersonnes},
+            nomRecettebrePersonnes : ${this.nbPersonnes},
             consignes : ${this.consignes},
             dateAjout : ${this.dateAjout},
             lastUpdate : ${this.lastUpdate}
