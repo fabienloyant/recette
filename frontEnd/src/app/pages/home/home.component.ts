@@ -10,8 +10,10 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class HomeComponent {
 
+  utilisateurs: UtilisateurInterface[] = []
+  
   constructor(private service: UtilisateurService, private router: Router) {}
-
+  
 
   login = (data: UtilisateurInterface) => {
     this.service.login(data).subscribe(

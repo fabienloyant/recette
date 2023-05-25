@@ -16,7 +16,7 @@
             <td> {{ item.nom }} </td>
             <td> Quantité </td>
             <td> 
-                <button class="btn btn-warning" routerLink="modifieringredient"> modifier </button>
+                <button class="btn btn-warning" (click)="goToPageModifier(item.id)"> modifier </button>
                 <button class="btn btn-danger"> supprimer </button>
             </td>
           </tr>

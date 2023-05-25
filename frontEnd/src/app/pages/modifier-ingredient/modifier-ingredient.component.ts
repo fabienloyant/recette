@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IngredientInterface, IngredientModel } from 'src/app/models/IngredientModel';
 import { IngredientService } from 'src/app/services/ingredient.service';
 
@@ -9,30 +10,26 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 })
 export class ModifierIngredientComponent {
 
-  ingredient: IngredientInterface = new IngredientModel();
+  ingredient: IngredientInterface = new IngredientModel()
 
-  constructor(private service: IngredientService) {}
+  constructor(private route:ActivatedRoute, private service: IngredientService) {}
 
-  ngOnInit() {
-    //this.getIngredientById(id)
-    console.log("exe");
-    
+  ngOnInit(): void {
+    const id: number = this.getId()
+    this.getIngredientFromService();
+}
+
+  getId = () => {
+    return this.route.snapshot.params['id'];
   }
 
-  getIngredientById = (id: number) => {
-    this.service.getIngredientById(id).subscribe(
-      {
-        next: (data: IngredientModel) => {
-          this.ingredient = data;
-        },
-        error: (err) => {
-          console.error(err);
-        },
-        complete: () => {
-          console.log("complete");
-        }
-      })
+  getIngredientFromService = () => {
+    const id: number = this.getId();
+    const data = this.service.getIngredientById(id).subscribe({
+      next : (value) => {
+        this.ingredient = value;
+      }
+    });
   }
-
 
 }

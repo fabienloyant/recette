@@ -10,7 +10,7 @@
             <label for="typeIngredient" class="form-label"> Type d'ingrédient: </label>
             <select class="form-select" formControlName="typeIngredient" id="typeIngredient" aria-label="typeIngredient">
                 <option selected> Choisir le type d'ingrédients </option>
-                <option *ngFor="let item of  typeIngredient" [value]="item"> {{ item }} </option>
+                <option *ngFor="let item of  typeIngredient" [value]="item"> {{ item | titlecase }} </option>
             </select>
             </div>
 
@@ -30,7 +30,7 @@
                 <label for="Unite"> Unite: </label>
                     <select class="form-select" formControlName="unite" id="Unite" aria-label="typeIngredient">
                         <option selected> Unite</option>
-                        <option *ngFor="let item of  unite" [value]="item"> {{ item }} </option>
+                        <option *ngFor="let item of  unite" [value]="item"> {{ item  | titlecase }} </option>
                     </select>
             </div>
 

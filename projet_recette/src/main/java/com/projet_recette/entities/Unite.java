@@ -1,6 +1,7 @@
 package com.projet_recette.entities;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import org.apache.commons.lang3.*;
 
 import lombok.Getter;
 
@@ -15,9 +16,7 @@ public enum Unite {
 	private Unite(String libelle) {
 		this.libelle = libelle;
 	}
-//	@JsonCreator
-//	private static Unite forValue(String name) {
-//		return EnumUtil.getEnumByNameIgnoreCase(Unite.class, name);
-//	}
+	
+	
 	
 }

@@ -23,7 +23,7 @@ export class IngredientService {
     return this.http.get<IngredientInterface>(`${this.URI}/${id}`)
   }
 
-  getIngredientByUtilisateurId =(id: number): Observable<IngredientInterface> =>{
+  getIngredientByUtilisateurId = (id: number): Observable<IngredientInterface> =>{
     return this.http.get<IngredientInterface>(`${this.URI}/${id}/withingredients`)
   }
 
