@@ -37,3 +37,7 @@
     width: 50%;
 }
 
+.invalid {
+    color: red;
+}
+

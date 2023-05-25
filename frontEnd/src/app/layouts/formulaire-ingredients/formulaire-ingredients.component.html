@@ -5,9 +5,9 @@
         <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()" class="form" id="formIngredient">
             <div class="menu1">
             <label for="typeIngredient" class="form-label"> Type d'ingrédient </label>
-            <select  formControlName="types" class="form-select" id="typeIngredient" aria-label="typeIngredient">
-                <option selected>Choisir le type d'ingrédients</option>
-                <option *ngFor="let item of types" [value]="item.key"> {{ item.value }} </option>
+            <select  [(ngModel)]="selectedType" (ngModelChange)="onTypeIngredientChange()" class="form-select" id="typeIngredient" aria-label="typeIngredient">
+                <option value=""> Choisir le type d'ingrédients </option>
+                <option *ngFor="let ingredient of ingredients" [value]="ingredient.typeIngredient"> {{ ingredient.typeIngredient }} </option>
             </select>
             </div>
 
@@ -15,8 +15,8 @@
 
                 <label for="ingredient"> Ingredients </label>
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Choisissez vos ingrédients</option>
-                    <option  value="1"> Carottes </option>
+                    <option value=""> Choisissez vos ingrédients </option>
+                    <option  *ngFor="let ingredient of filteredIngredients" [value]="ingredient.nom">{{ ingredient.nom }} </option>
                 </select>
 
             </div>
