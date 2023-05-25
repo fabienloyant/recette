@@ -29,9 +29,9 @@ public class IngredientRecetteService {
 		return ingredientRecetteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ingredient-Recette non trouvé")); //renvoie un message personnalisé de l'erreur
 	}
 	
-//	public List<IngredientRecette> findByRecette(int id){
-//		return ingredientRecetteRepository.findByRecetteId(id);
-//	}
+	public List<IngredientRecette> findByIngredientId(int id){
+		return ingredientRecetteRepository.findByIngredientId(id);
+	}
 	
 	//save = create
 	public IngredientRecette save(IngredientRecette ingredientRecette) {

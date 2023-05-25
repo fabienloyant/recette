@@ -8,6 +8,6 @@ import com.projet_recette.entities.IngredientRecette;
 
 public interface IngredientRecetteRepository extends JpaRepository<IngredientRecette, Integer>{
 	
-	//public List<IngredientRecette> findByRecetteId(int id);
+	public List<IngredientRecette> findByIngredientId(int id);
 
 }

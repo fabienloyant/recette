@@ -46,14 +46,14 @@ public class RecetteService {
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recette non trouvée")); 
 	}
 	
-	/*
+	
 	public RecetteCompletDto ListIngredient(int id) {
 		Recette recette = recetteRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recette non trouvée"));
 		
 		RecetteCompletDto recComplet= objectMapper.convertValue(recette, RecetteCompletDto.class);
 		
-		List<IngredientRecette> ingredientRecetteList = ingredientRecetteService.findByRecette(id);
+		List<IngredientRecette> ingredientRecetteList = ingredientRecetteService.findByIngredientId(id);
 		List<IngredientReduitDto> ingredientSansRecetteList = ingredientRecetteList.stream().map(ingredientRecette -> toDtoIngredient(ingredientRecette)).toList();
 	recComplet.setIngredient(ingredientSansRecetteList);
 			
@@ -65,7 +65,7 @@ public class RecetteService {
 		return recComplet;
 	}
 	
-	*/
+	
 	
 	public IngredientReduitDto toDtoIngredient(IngredientRecette data) {
 		IngredientReduitDto norecette = new IngredientReduitDto();
