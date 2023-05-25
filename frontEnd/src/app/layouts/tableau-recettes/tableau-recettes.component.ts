@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RecetteInterface, RecetteModel } from 'src/app/models/RecetteModel';
 
 @Component({
   selector: 'app-tableau-recettes',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./tableau-recettes.component.css']
 })
 export class TableauRecettesComponent {
+
+  @Input()
+  data: RecetteInterface[] = [new RecetteModel()]
 
 }
