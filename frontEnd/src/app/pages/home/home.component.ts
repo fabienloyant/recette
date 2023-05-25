@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UtilisateurInterface } from 'src/app/models/UtilisateurModel';
+import { Router } from '@angular/router';
+import { UtilisateurInterface, UtilisateurModel } from 'src/app/models/UtilisateurModel';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
@@ -7,27 +8,24 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  utilisateurs: UtilisateurInterface[] = []
-  
-
-  constructor(private service: UtilisateurService) {}
-
-  ngOnInit = () => {
-    if()
-
-  }
+  constructor(private service: UtilisateurService, private router: Router) {}
 
 
   login = (data: UtilisateurInterface) => {
     this.service.login(data).subscribe(
       {
         next: (data: UtilisateurInterface) => {
-          this.utilisateurs.push(data)
-          console.log(data);
+          this.service.connecterUtilisateur(data);
+          this.router.navigateByUrl('/recette');
+          // console.log(this.service.isLoggedIn);
+          // console.log(this.service.utilisateur);
         }, 
         error: (err) => {
+          this.service.deconnecterUtilisateur();
+          // console.log(this.service.isLoggedIn);
+          // console.log(this.service.utilisateur);
           console.log(err);
         }
       })
