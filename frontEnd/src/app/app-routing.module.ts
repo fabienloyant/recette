@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'ingredient', component: IngredientsComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'recette', component: RecettesComponent},
-  {path: 'modifieringredient', component: ModifierIngredientComponent},
+  {path: 'modifieringredient/:id', component: ModifierIngredientComponent},
   {path: 'gestioncompte', component: GestionCompteComponent},
   {path: 'modifiermdp', component: ModifierMdpComponent},
   {path: '', component: HomeComponent}

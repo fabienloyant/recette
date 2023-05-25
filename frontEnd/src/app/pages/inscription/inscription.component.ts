@@ -13,25 +13,6 @@ export class InscriptionComponent {
 
   constructor(private service: UtilisateurService) {}
 
-  ngOnInit() {
-    this.getUtilisateur()
-  }
-
-  getUtilisateur = () => {
-    this.service.getUtilisateurs().subscribe(
-      {
-        next: (data: UtilisateurInterface[]) => {
-          this.utilisateurs = data;
-        },
-        error: (err) => {
-          console.error(err);
-        },
-        complete: () => {
-          console.log("complete");
-        }
-      })
-  }
-
   addUtilisateurs = (data: UtilisateurInterface) => {
     this.service.addUtilisateur(data).subscribe(
       {
