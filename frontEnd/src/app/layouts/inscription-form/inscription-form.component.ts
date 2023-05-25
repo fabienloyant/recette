@@ -23,7 +23,7 @@ export class InscriptionFormComponent {
     nom : ['', [Validators.required]],
     dateDeNaissance : ['', [Validators.required]],
     login : ['', [Validators.required]],
-    mdp : ['', [Validators.required]]
+    mdp : ['', [Validators.required, Validators.minLength(2)]]
   })
 
   //constructeur

@@ -11,45 +11,37 @@ export class IngredientService {
 
   private URI = 'http://localhost:8080/ingredient'
 
-  private ingredientMock: IngredientInterface[] = [
-    {
-      id: 1,
-      nom: "carotte",
-      unite: Unite.g,
-      typeIngredient: TypeIngredient.legume
-    },
-    {
-      id: 2,
-      nom: "salade",
-      unite: Unite.ingredient,
-      typeIngredient: TypeIngredient.legume
-    },
-    {
-      id: 3,
-      nom: "fraise",
-      unite: Unite.g,
-      typeIngredient: TypeIngredient.fruit
-    }
-  ]
-
   constructor(private http: HttpClient) { }
 
 
-  getIngredients = () => {
-    return this.ingredientMock
+  getIngredients = (): Observable<IngredientInterface[]> => {
+    return this.http.get<IngredientInterface[]>(`${this.URI}`)
+  }
+
+  getIngredientById = (id: number): Observable<IngredientInterface> => {
+    return this.http.get<IngredientInterface>(`${this.URI}/${id}`)
   }
 
   //méthode pour faire un filtre (afficher les ingredients que quand type ingredient est legume ) MAIS ne marche pas 
-  getIngredientByType = () => {
-    const ingredients = [this.ingredientMock];
+  getIngredientByType = (): Observable<void> => {
+    const ingredients = this.http.get<IngredientInterface[]>(`${this.URI}`)
     const result = ingredients.filter(ingredient => TypeIngredient.legume);
     console.log(result);
   }
-// Expected output: Array ["exuberant", "destruction", "present"]
 
   //méthode ajout ingredient
   addIngredient = (data: IngredientInterface): Observable<IngredientInterface> => {
     return this.http.post<IngredientInterface>(`${this.URI}`, data)
+  }
+
+  //méthode modif quantite ingr
+  patchQuantite = (id: number, data = ""): Observable<IngredientInterface> => {
+    return this.http.patch<IngredientInterface>(`${this.URI}/${id}`, data)
+  }
+
+  //delete ingredient
+  deleteIngredient = (id: number): Observable<void> => {
+    return this.http.delete<void>(`${this.URI}/${id}`)
   }
 
 }

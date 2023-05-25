@@ -38,6 +38,7 @@ export class InscriptionComponent {
         next: (data: UtilisateurInterface) => {
           this.utilisateurs.push(data)
           console.log(data);
+          console.log("addutilisateur");
           
         },
         error: (err) => {
