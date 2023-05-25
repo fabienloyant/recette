@@ -14,7 +14,9 @@ export class ModifierIngredientComponent {
   constructor(private service: IngredientService) {}
 
   ngOnInit() {
-    this.getIngredientById()
+    //this.getIngredientById(id)
+    console.log("exe");
+    
   }
 
   getIngredientById = (id: number) => {
