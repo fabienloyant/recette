@@ -1,0 +1,27 @@
+<h1>{{ recette.nomRecette }}</h1>
+
+<h3>Informations de base</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Temps de préparation</th>
+            <th>Temps de cuisson</th>
+            <th>Temps de repos</th>
+            <th>Nombre de personnes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> {{ recette.tempsPreparation }} minutes </td>
+            <td> {{ recette.tempsCuisson }} minutes </td>
+            <td> {{ recette.tempsRepos }} minutes </td>
+            <td> {{ recette.nbPersonnes }} personnes </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Consignes de la recette</h3>
+<p> {{ recette.consignes }} </p>
+
+<button class="btn btn-primary">J'ai réalisé la recette</button>
+(Ce bouton va retirer de votre liste les ingrédients que vous avez utilisé dans cette recette)

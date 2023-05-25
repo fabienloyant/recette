@@ -26,6 +26,7 @@ import { ModifierMdpComponent } from './pages/modifier-mdp/modifier-mdp.componen
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailsRecetteComponent } from './pages/details-recette/details-recette.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModifierIngredientComponent,
     GestionCompteComponent,
     ModifierMdpComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    DetailsRecetteComponent
   ],
   imports: [
     BrowserModule,

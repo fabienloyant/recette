@@ -44,12 +44,12 @@ class RecetteModel implements RecetteInterface {
 
     toString = () => {
         return (`
-            id : ${this.idRecette},
-            name : ${this.nomRecette},
+            idRecette : ${this.idRecette},
+            nomRecette : ${this.nomRecette},
             tempsPreparation : ${this.tempsPreparation},
             tempsCuisson : ${this.tempsCuisson},
             tempsRepos : ${this.tempsRepos},
-            nomRecettebrePersonnes : ${this.nbPersonnes},
+            nbPersonnes : ${this.nbPersonnes},
             consignes : ${this.consignes},
             dateAjout : ${this.dateAjout},
             lastUpdate : ${this.lastUpdate}

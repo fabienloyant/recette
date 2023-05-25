@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of data">
-                <td><a href="">{{ item.nomRecette }}</a></td>
+                <td><a [routerLink]="['/recette', item.idRecette]">{{ item.nomRecette }}</a></td>
                 <td>Dessert</td>
                 <td>{{ item.tempsPreparation }} minutes</td>
                 <td>{{ item.nbPersonnes }} personnes</td>

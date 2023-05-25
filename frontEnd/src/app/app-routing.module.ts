@@ -9,6 +9,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { ModifierIngredientComponent } from './pages/modifier-ingredient/modifier-ingredient.component';
 import { GestionCompteComponent } from './pages/gestion-compte/gestion-compte.component';
 import { ModifierMdpComponent } from './pages/modifier-mdp/modifier-mdp.component';
+import { DetailsRecetteComponent } from './pages/details-recette/details-recette.component';
 
 const routes: Routes = [
   {path: 'ingredient', component: IngredientsComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'modifieringredient', component: ModifierIngredientComponent},
   {path: 'gestioncompte', component: GestionCompteComponent},
   {path: 'modifiermdp', component: ModifierMdpComponent},
+  {path: 'recette/:id', component: DetailsRecetteComponent},
   {path: '', component: HomeComponent}
 ];
 

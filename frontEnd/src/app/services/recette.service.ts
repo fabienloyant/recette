@@ -16,4 +16,8 @@ export class RecetteService {
     return this.http.get<RecetteInterface[]>(`${this.URI}`);
   }
 
+  getRecetteById = (id: number): Observable<RecetteInterface> => {
+    return this.http.get<RecetteInterface>(`${this.URI}/${id}`);
+  }
+
 }
